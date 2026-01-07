@@ -29,5 +29,6 @@ jobs:
             --exclude ".gitignore" \
             --exclude "README.md" \
             --exclude "setup/*" \
+            --exclude "img/*" \
             --delete  # Remove files in S3 that don't exist locally
 
