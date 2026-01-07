@@ -1,0 +1,73 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Creates S3 bucket and IAM user for GitHub Actions sync'
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Name of the S3 bucket (must be globally unique)
+    AllowedPattern: '^[a-z0-9][a-z0-9-]*[a-z0-9]$'
+    ConstraintDescription: Bucket name must be lowercase, alphanumeric, and may contain hyphens
+  
+  IAMUserName:
+    Type: String
+    Description: Name for the IAM user that will access S3
+    Default: github-s3-sync-user
+    AllowedPattern: '^[a-zA-Z0-9+=,.@_-]+$'
+    ConstraintDescription: IAM user name must be valid
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  IAMUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: !Ref IAMUserName
+      Policies:
+        - PolicyName: S3BucketAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub 'arn:aws:s3:::${S3Bucket}/*'
+                  - !Sub 'arn:aws:s3:::${S3Bucket}'
+
+  IAMUserAccessKey:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      UserName: !Ref IAMUser
+
+Outputs:
+  BucketName:
+    Description: Name of the created S3 bucket
+    Value: !Ref S3Bucket
+    Export:
+      Name: !Sub '${AWS::StackName}-BucketName'
+  
+  AccessKeyId:
+    Description: Access Key ID for the IAM user
+    Value: !Ref IAMUserAccessKey
+  
+  SecretAccessKey:
+    Description: Secret Access Key for the IAM user (save this immediately!)
+    Value: !GetAtt IAMUserAccessKey.SecretAccessKey
+  
+  Region:
+    Description: AWS Region where resources were created
+    Value: !Ref AWS::Region
+
