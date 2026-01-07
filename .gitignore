@@ -43,3 +43,7 @@ build/
 *.pem
 credentials
 
+# Images and media files (stored in S3, not in git)
+img/*
+!img/resume.pdf
+
