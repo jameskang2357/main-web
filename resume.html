@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - James Kang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #fafafa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border-color: #e5e5e5;
+            --sidebar-width: 280px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1e40af;
+                --bg-secondary: #1e3a8a;
+                --text-primary: #e5e5e5;
+                --text-secondary: #b8c5e0;
+                --text-tertiary: #8a9bb8;
+                --border-color: #2563eb;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        aside {
+            width: var(--sidebar-width);
+            border-right: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .social {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .social a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .social a:hover {
+            color: var(--text-primary);
+        }
+
+        main {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 3rem 4rem;
+            max-width: 900px;
+            margin-right: auto;
+        }
+
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .download-button {
+            padding: 0.875rem 2rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .resume-content {
+            background: var(--bg-primary);
+            padding: 3rem 0;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .resume-header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            max-width: 100%;
+        }
+
+        .resume-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .resume-title {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .resume-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .resume-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .resume-contact a:hover {
+            color: var(--text-primary);
+        }
+
+        .resume-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 2rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .item-company, .item-school {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .item-date {
+            font-size: 1rem;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+
+        .item-description {
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .item-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .item-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+            aside {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            main {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .resume-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="logo">James Kang</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="articles.html">Writing</a>
+                <a href="resume.html" class="active">Resume</a>
+            </nav>
+            <div class="social">
+                <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
+                <a href="https://github.com/JamesKang26" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </aside>
+        <main>
+            <div class="resume-header">
+                <h1 class="page-title">Resume</h1>
+                <a href="img/resume.pdf" download="James_Kang_Resume.pdf" class="download-button">
+                    <span>↓</span> Download PDF
+                </a>
+            </div>
+            <div class="resume-content" id="resume-content">
+                <!-- Resume content will be loaded here via JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // RESUME DATA - Edit this section with your actual resume information
+        const resumeData = {
+            name: "James Kang",
+            title: "Data Engineer",
+            contact: {
+                email: "jameskang2357@gmail.com",
+                phone: "(541) 221-6780",
+                github: "https://github.com/JamesKang26",
+                linkedin: "https://www.linkedin.com/in/jameskang2357"
+            },
+            experience: [
+                {
+                    title: "Data Engineer",
+                    company: "BILL",
+                    location: "",
+                    startDate: "Feb 2022",
+                    endDate: "current",
+                    achievements: [
+                        "Own and maintain batch and streaming pipelines ingesting from Oracle, MySQL, DynamoDB, and third-party sources into a centralised data platform",
+                        "Designed and scaled near real-time streaming pipelines using AWS Kinesis, Apache Kafka, Flink, Glue, Firehose, and EMR, enabling data freshness across AI, billing, risk, compliance, and finance teams",
+                        "Modernized legacy ETL workflows by upgrading AWS Glue, Airflow, and Spark, improving reliability, reducing job runtimes, and cutting operational overhead",
+                        "Drove AWS cost-optimization initiatives, achieving 20%+ quarterly savings through workload tuning, storage optimization, and scaling",
+                        "Developed monitoring, alerting, and automated quality checks for data pipelines, improving system reliability and ensuring high data accuracy",
+                        "Implemented secure cross-account IAM roles and data-sharing patterns, enabling safe and compliant access across internal teams and partner accounts",
+                        "Partnered with engineering, finance, risk, and compliance teams to deliver scalable data solutions that support analytics, reporting, and operational workflows"
+                    ]
+                },
+                {
+                    title: "Software Developer",
+                    company: "Avant",
+                    location: "",
+                    startDate: "Oct 2020",
+                    endDate: "Feb 2022",
+                    achievements: [
+                        "Delivered end-to-end features as a full-stack developer using Kotlin, RESTful APIs, Kubernetes, and React, improving system reliability and user experience",
+                        "Contributed across the software development lifecycle, from defining requirements to deploying finished products",
+                        "Worked with QA and development teams to enhance and automate testing processes, increasing efficiency and documentation quality",
+                        "Integrated machine learning algorithms into applications, helping reduce hiring costs by 30%",
+                        "Built and managed pipelines to deploy and maintain models smoothly in production",
+                        "Found and applied improvements that cut training time by 20% and boosted overall model quality and data accuracy",
+                        "Analysed data features to identify patterns and improve data quality, resulting in a 10% increase in model accuracy"
+                    ]
+                }
+            ],
+            education: [
+                {
+                    degree: "B.S. in Computer Science",
+                    school: "University of Oregon",
+                    location: "Eugene, OR",
+                    graduationDate: "2020",
+                    description: "Minor in Business Administration"
+                }
+            ],
+            skills: [
+                "AWS", "Kinesis", "Apache Kafka", "Flink", "Glue", "Firehose", "EMR",
+                "Kotlin", "React", "Kubernetes", "RESTful APIs", "Airflow", "Spark",
+                "Oracle", "MySQL", "DynamoDB", "ETL", "Data Pipelines", "Machine Learning"
+            ]
+        };
+
+        function renderResume() {
+            const container = document.getElementById('resume-content');
+            
+            let html = `
+                <div class="resume-header-section">
+                    <div class="resume-name">${resumeData.name}</div>
+                    <div class="resume-title">${resumeData.title}</div>
+                    <div class="resume-contact">
+                        ${resumeData.contact.phone ? `<span>${resumeData.contact.phone}</span>` : ''}
+                        <a href="mailto:${resumeData.contact.email}">${resumeData.contact.email}</a>
+                        <a href="${resumeData.contact.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="${resumeData.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            `;
+
+            if (resumeData.experience && resumeData.experience.length > 0) {
+                html += `<div class="resume-section"><div class="section-title">Employment</div>`;
+                resumeData.experience.forEach(exp => {
+                    html += `
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">${exp.title}</div>
+                                    <div class="item-company">${exp.company}${exp.location ? ` · ${exp.location}` : ''}</div>
+                                </div>
+                                <div class="item-date">${exp.startDate} - ${exp.endDate === "current" ? "current" : exp.endDate}</div>
+                            </div>
+                            <div class="item-description">
+                                ${exp.achievements && exp.achievements.length > 0 ? `
+                                    <ul>
+                                        ${exp.achievements.map(ach => `<li>${ach}</li>`).join('')}
+                                    </ul>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            if (resumeData.education && resumeData.education.length > 0) {
+                html += `<div class="resume-section"><div class="section-title">Education</div>`;
+                resumeData.education.forEach(edu => {
+                    html += `
+                        <div class="education-item">
+                            <div class="item-header">
+                                <div>
+                                    <div class="item-title">${edu.degree}</div>
+                                    <div class="item-school">${edu.school}${edu.location ? ` · ${edu.location}` : ''}</div>
+                                </div>
+                                <div class="item-date">${edu.graduationDate}</div>
+                            </div>
+                            ${edu.description ? `<div class="item-description">${edu.description}</div>` : ''}
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+
+            if (resumeData.skills && resumeData.skills.length > 0) {
+                html += `
+                    <div class="resume-section">
+                        <div class="section-title">Skills</div>
+                        <div class="skills-list">
+                            ${resumeData.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        renderResume();
+        
+        function copyEmail(event) {
+            event.preventDefault();
+            const email = 'jameskang2357@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const link = document.getElementById('email-link');
+                const originalText = link.textContent;
+                link.textContent = 'Copied!';
+                setTimeout(() => {
+                    link.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email:', err);
+                window.location.href = 'mailto:' + email;
+            });
+        }
+    </script>
+</body>
+</html>
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Kang - Software Engineer</title>
+    <title>James Kang - Data Engineer</title>
     <style>
         * {
             margin: 0;
@@ -18,251 +18,300 @@
             --text-secondary: #666666;
             --text-tertiary: #999999;
             --border-color: #e5e5e5;
-            --accent: #0066cc;
-            --accent-hover: #0052a3;
+            --sidebar-width: 280px;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-primary: #1e3a8a;
-                --bg-secondary: #1a2d7a;
+                --bg-primary: #1e40af;
+                --bg-secondary: #1e3a8a;
                 --text-primary: #e5e5e5;
                 --text-secondary: #b8c5e0;
                 --text-tertiary: #8a9bb8;
-                --border-color: #2a4a9a;
-                --accent: #4a9eff;
-                --accent-hover: #6bb0ff;
+                --border-color: #2563eb;
             }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            background-color: var(--bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Header Navigation */
-        header {
-            padding: 3rem 2rem 2rem;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        aside {
+            width: var(--sidebar-width);
+            border-right: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
         }
 
         nav {
             display: flex;
-            gap: 2.5rem;
-            font-size: 0.95rem;
-            font-weight: 400;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.2s ease;
-            position: relative;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--text-primary);
-            transition: width 0.2s ease;
-        }
-
-        nav a:hover {
+        nav a:hover, nav a.active {
+            background: var(--bg-secondary);
             color: var(--text-primary);
         }
 
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        main {
-            flex: 1;
+        .social {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 4rem 2rem;
-            text-align: center;
+            gap: 0.75rem;
         }
 
-        .hero {
-            max-width: 700px;
-            animation: fadeIn 0.6s ease-out;
+        .social a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .social a:hover {
+            color: var(--text-primary);
+        }
+
+        main {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 5rem 4rem;
+            max-width: 900px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--text-primary);
             letter-spacing: -0.03em;
             line-height: 1.1;
         }
 
         .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             color: var(--text-secondary);
-            margin-bottom: 4rem;
-            font-weight: 400;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 3rem;
+            line-height: 1.6;
         }
 
         .links {
             display: flex;
-            gap: 1.25rem;
-            justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .link-button {
             padding: 0.875rem 2rem;
-            background: transparent;
-            border: 1.5px solid var(--border-color);
-            color: var(--text-primary);
+            background: var(--text-primary);
+            color: var(--bg-primary);
             text-decoration: none;
             border-radius: 6px;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: all 0.2s ease;
-            display: inline-block;
+            transition: all 0.2s;
         }
 
         .link-button:hover {
-            border-color: var(--text-primary);
-            background: var(--bg-secondary);
+            opacity: 0.9;
             transform: translateY(-1px);
         }
 
-        .link-button.primary {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-color: var(--text-primary);
-        }
-
-        .link-button.primary:hover {
-            background: var(--text-secondary);
-            border-color: var(--text-secondary);
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: auto;
-        }
-
-        footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        footer a:hover {
+        .link-button.secondary {
+            background: transparent;
+            border: 1.5px solid var(--border-color);
             color: var(--text-primary);
         }
 
-        footer p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
+        .link-button.secondary:hover {
+            background: var(--bg-secondary);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 2rem 1.5rem 1.5rem;
-            }
+        .intro {
+            margin-bottom: 4rem;
+        }
 
-            nav {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-            }
+        .intro h1 {
+            margin-bottom: 1rem;
+        }
 
-            main {
-                padding: 3rem 1.5rem;
-            }
+        .intro .role {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
 
-            .links {
+        .about {
+            margin-bottom: 4rem;
+        }
+
+        .about h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-item {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .highlight-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 968px) {
+            .container {
                 flex-direction: column;
-                align-items: stretch;
-                width: 100%;
             }
-
-            .link-button {
+            aside {
+                position: relative;
                 width: 100%;
-                text-align: center;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
             }
-
-            .subtitle {
-                margin-bottom: 3rem;
+            main {
+                margin-left: 0;
+                padding: 3rem 2rem;
+            }
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/projects.html">Projects</a>
-            <a href="/articles.html">Writing</a>
-            <a href="/img/resume.pdf">Resume</a>
+    <div class="container">
+        <aside>
+            <div class="logo">James Kang</div>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="articles.html">Writing</a>
+                <a href="resume.html">Resume</a>
   </nav>
-    </header>
-
-    <main>
-        <div class="hero">
-            <h1>James Kang</h1>
-            <p class="subtitle">Software Engineer building things on the web</p>
-            
-            <div class="links">
-                <a href="/projects.html" class="link-button primary">View Projects</a>
-                <a href="/articles.html" class="link-button">Read Writing</a>
-                <a href="/img/resume.pdf" class="link-button">Resume</a>
+            <div class="social">
+                <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
+                <a href="https://github.com/JamesKang26" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 			</div>
-		</div>
-    </main>
+        </aside>
+        <main>
+            <div class="intro">
+                <h1>James Kang</h1>
+                <p class="role">Data Engineer</p>
+                <p class="subtitle">Building scalable data pipelines and infrastructure. Passionate about turning data into insights and solving complex engineering challenges.</p>
+</div>
 
-    <footer>
-        <p>
-            <a href="mailto:jameskang2357@gmail.com">Email</a>
-            <span>·</span>
-            <a href="https://github.com/JamesKang26" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span>·</span>
-            <a href="https://www.linkedin.com/in/james~kang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
-</footer>
+            <div class="about">
+                <h2>About Me</h2>
+                <p>
+                    I'm a Data Engineer at BILL currently, where I design and maintain batch and streaming pipelines that power data-driven decisions across the organization. I specialize in building reliable, scalable data infrastructure using AWS, Apache Kafka, Flink, and modern ETL tools.
+                </p>
+                <p>
+                    Previously at Avant, I worked as a Software Developer building full-stack features and integrating machine learning models into production systems. I enjoy the intersection of data engineering, software development, and solving real-world problems at scale.
+                </p>
+                <p>
+                    When I'm not building pipelines, I'm learning about new technologies, writing about my experiences, and contributing to open-source projects.
+                </p>
+
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <h3>Data Infrastructure</h3>
+                        <p>Designing and scaling real-time streaming pipelines with AWS Kinesis, Kafka, and Flink</p>
+		</div>
+                    <div class="highlight-item">
+                        <h3>Cost Optimization</h3>
+                        <p>Achieved 20%+ quarterly AWS cost savings through workload tuning and optimization</p>
+		</div>
+                    <div class="highlight-item">
+                        <h3>Full-Stack Development</h3>
+                        <p>Building end-to-end features with Kotlin, React, Kubernetes, and modern APIs</p>
+		</div>
+	</div>
+</div>
+
+            <div class="links">
+                <a href="resume.html" class="link-button">View Resume</a>
+                <a href="articles.html" class="link-button secondary">Read Writing</a>
+		</div>
+        </main>
+		</div>
+    <script>
+        function copyEmail(event) {
+            event.preventDefault();
+            const email = 'jameskang2357@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const link = document.getElementById('email-link');
+                const originalText = link.textContent;
+                link.textContent = 'Copied!';
+                setTimeout(() => {
+                    link.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email:', err);
+                // Fallback: open mailto if clipboard fails
+                window.location.href = 'mailto:' + email;
+            });
+        }
+    </script>
 </body>
 </html>

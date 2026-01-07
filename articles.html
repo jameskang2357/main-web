@@ -5,355 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing - James Kang</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #fafafa;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --text-tertiary: #999999;
-            --border-color: #e5e5e5;
-            --accent: #0066cc;
-            --accent-hover: #0052a3;
+            --bg-primary: #ffffff; --bg-secondary: #fafafa; --text-primary: #1a1a1a;
+            --text-secondary: #666666; --text-tertiary: #999999; --border-color: #e5e5e5; --sidebar-width: 280px;
         }
-
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-primary: #1e3a8a;
-                --bg-secondary: #1a2d7a;
-                --text-primary: #e5e5e5;
-                --text-secondary: #b8c5e0;
-                --text-tertiary: #8a9bb8;
-                --border-color: #2a4a9a;
-                --accent: #4a9eff;
-                --accent-hover: #6bb0ff;
+                --bg-primary: #1e40af; --bg-secondary: #1e3a8a; --text-primary: #e5e5e5;
+                --text-secondary: #b8c5e0; --text-tertiary: #8a9bb8; --border-color: #2563eb;
             }
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Header Navigation */
-        header {
-            padding: 3rem 2rem 2rem;
-            max-width: 800px;
-            width: 100%;
-            margin: 0 auto;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        nav {
-            display: flex;
-            gap: 2.5rem;
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--text-primary);
-            transition: width 0.2s ease;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--text-primary);
-        }
-
-        nav a.active::after,
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .page-title {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .page-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            margin-bottom: 4rem;
-            font-weight: 400;
-        }
-
-        /* Articles List */
-        .articles-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .article-item {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: opacity 0.2s ease;
-        }
-
-        .article-item:first-child {
-            padding-top: 0;
-        }
-
-        .article-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .article-item:hover {
-            opacity: 0.8;
-        }
-
-        .article-date {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-            font-weight: 400;
-        }
-
-        .article-title {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .article-title a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .article-title a:hover {
-            color: var(--text-secondary);
-        }
-
-        .article-excerpt {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .read-more {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .read-more:hover {
-            color: var(--text-primary);
-        }
-
-        .read-more::after {
-            content: "→";
-            transition: transform 0.2s ease;
-        }
-
-        .read-more:hover::after {
-            transform: translateX(4px);
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 6rem 2rem;
-            color: var(--text-tertiary);
-        }
-
-        .empty-state h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-
-        .empty-state p {
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 2rem 3rem;
-            text-align: center;
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            max-width: 800px;
-            margin: 0 auto;
-            border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
-        }
-
-        footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        footer a:hover {
-            color: var(--text-primary);
-        }
-
-        footer p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 2rem 1.5rem 1.5rem;
-            }
-
-            nav {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-            }
-
-            main {
-                padding: 3rem 1.5rem;
-            }
-
-            .page-title {
-                margin-bottom: 0.75rem;
-            }
-
-            .page-subtitle {
-                margin-bottom: 3rem;
-            }
-
-            .article-title {
-                font-size: 1.5rem;
-            }
-
-            .article-item {
-                padding: 2.5rem 0;
-            }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { display: flex; min-height: 100vh; }
+        aside { width: var(--sidebar-width); border-right: 1px solid var(--border-color); padding: 3rem 2rem; position: fixed; height: 100vh; overflow-y: auto; background: var(--bg-primary); }
+        .logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 3rem; letter-spacing: -0.02em; }
+        nav { display: flex; flex-direction: column; gap: 0.5rem; }
+        nav a { color: var(--text-secondary); text-decoration: none; padding: 0.75rem 1rem; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; }
+        nav a:hover, nav a.active { background: var(--bg-secondary); color: var(--text-primary); }
+        .social { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.75rem; }
+        .social a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .social a:hover { color: var(--text-primary); }
+        main { flex: 1; margin-left: var(--sidebar-width); padding: 5rem 4rem; max-width: 900px; }
+        .page-title { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .page-subtitle { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 4rem; }
+        .articles-list { display: flex; flex-direction: column; gap: 0; }
+        .article-item { padding: 3rem 0; border-bottom: 1px solid var(--border-color); }
+        .article-item:first-child { padding-top: 0; }
+        .article-item:last-child { border-bottom: none; }
+        .article-date { color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .article-title { font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; line-height: 1.3; }
+        .article-title a { color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+        .article-title a:hover { color: var(--text-secondary); }
+        .article-excerpt { color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+        .read-more { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        .read-more:hover { color: var(--text-primary); }
+        .empty-state { text-align: center; padding: 6rem 2rem; color: var(--text-tertiary); }
+        @media (max-width: 968px) {
+            .container { flex-direction: column; }
+            aside { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-color); }
+            main { margin-left: 0; padding: 3rem 2rem; }
+            nav { flex-direction: row; flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/projects.html">Projects</a>
-            <a href="/articles.html" class="active">Writing</a>
-            <a href="/img/resume.pdf">Resume</a>
-        </nav>
-    </header>
-
-    <main>
-        <h1 class="page-title">Writing</h1>
-        <p class="page-subtitle">Thoughts on tech, projects, and what I'm learning</p>
-
-        <div class="articles-list" id="articles-container">
-            <!-- Articles will be loaded here -->
-        </div>
-    </main>
-
-    <footer>
-        <p>
-            <a href="mailto:jameskang2357@gmail.com">Email</a>
-            <span>·</span>
-            <a href="https://github.com/JamesKang26" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span>·</span>
-            <a href="https://www.linkedin.com/in/james~kang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
-    </footer>
-
+    <div class="container">
+        <aside>
+            <div class="logo">James Kang</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="articles.html" class="active">Writing</a>
+                <a href="resume.html">Resume</a>
+            </nav>
+            <div class="social">
+                <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
+                <a href="https://github.com/JamesKang26" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </aside>
+        <main>
+            <h1 class="page-title">Writing</h1>
+            <p class="page-subtitle">Thoughts on tech, projects, and what I'm learning</p>
+            <div class="articles-list" id="articles-container"></div>
+        </main>
+    </div>
     <script>
-        // ARTICLES DATA - Edit this section to add/remove articles
         const articles = [
-            {
-                title: "Setting Up CloudFront with S3",
-                date: "January 6, 2026",
-                slug: "cloudfront-setup",
-                excerpt: "A walkthrough of setting up AWS CloudFront with S3 for a fast, secure static website with HTTPS.",
-            },
-            // Add more articles here as you write them
-            // {
-            //     title: "Your Next Article Title",
-            //     date: "January 15, 2026",
-            //     slug: "article-slug",
-            //     excerpt: "Brief description of what the article is about...",
-            // }
+            { 
+                title: "Vibe Coding: Building a Website When You're Bored (And What That Says About 2026)", 
+                date: "January 6, 2026", 
+                slug: "vibe-coding-website-2026", 
+                excerpt: "Today I was bored and started working on my personal website again. After looking at what I cobbled together as a fresh grad, it's almost laughable how far AI has come. Back in 2020, I followed a YouTube tutorial where I loaded static HTML and images onto an S3 bucket configured as a static website endpoint, then pointed my domain through Route53 to host on thejameskang.com. It worked, but barely."
+            }
         ];
-
-        // Render articles
         function renderArticles() {
             const container = document.getElementById('articles-container');
-            
             if (articles.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>Coming Soon</h3>
-                        <p>Articles and tutorials will appear here. Stay tuned!</p>
-                    </div>
-                `;
+                container.innerHTML = `<div class="empty-state"><h3>Coming Soon</h3><p>Articles and tutorials will appear here. Stay tuned!</p></div>`;
                 return;
             }
-
             articles.forEach(article => {
                 const item = document.createElement('article');
                 item.className = 'article-item';
-                
-                item.innerHTML = `
-                    <div class="article-date">${article.date}</div>
-                    <h2 class="article-title">
-                        <a href="/articles/${article.slug}.html">${article.title}</a>
-                    </h2>
-                    <p class="article-excerpt">${article.excerpt}</p>
-                    <a href="/articles/${article.slug}.html" class="read-more">Read more</a>
-                `;
-                
+                item.innerHTML = `<div class="article-date">${article.date}</div><h2 class="article-title"><a href="/articles/${article.slug}.html">${article.title}</a></h2><p class="article-excerpt">${article.excerpt}</p><a href="/articles/${article.slug}.html" class="read-more">Read more →</a>`;
                 container.appendChild(item);
             });
         }
-
         renderArticles();
+        
+        function copyEmail(event) {
+            event.preventDefault();
+            const email = 'jameskang2357@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const link = document.getElementById('email-link');
+                const originalText = link.textContent;
+                link.textContent = 'Copied!';
+                setTimeout(() => {
+                    link.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email:', err);
+                window.location.href = 'mailto:' + email;
+            });
+        }
     </script>
 </body>
 </html>

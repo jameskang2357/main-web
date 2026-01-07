@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding: Building a Website When You're Bored - James Kang</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #ffffff; --bg-secondary: #fafafa; --text-primary: #1a1a1a;
+            --text-secondary: #666666; --text-tertiary: #999999; --border-color: #e5e5e5; --sidebar-width: 280px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1e40af; --bg-secondary: #1e3a8a; --text-primary: #e5e5e5;
+                --text-secondary: #b8c5e0; --text-tertiary: #8a9bb8; --border-color: #2563eb;
+            }
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { display: flex; min-height: 100vh; }
+        aside { width: var(--sidebar-width); border-right: 1px solid var(--border-color); padding: 3rem 2rem; position: fixed; height: 100vh; overflow-y: auto; background: var(--bg-primary); }
+        .logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 3rem; letter-spacing: -0.02em; }
+        nav { display: flex; flex-direction: column; gap: 0.5rem; }
+        nav a { color: var(--text-secondary); text-decoration: none; padding: 0.75rem 1rem; border-radius: 6px; transition: all 0.2s; font-size: 0.95rem; }
+        nav a:hover, nav a.active { background: var(--bg-secondary); color: var(--text-primary); }
+        .social { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.75rem; }
+        .social a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .social a:hover { color: var(--text-primary); }
+        main { flex: 1; margin-left: var(--sidebar-width); padding: 5rem 4rem; max-width: 800px; }
+        .article-header { margin-bottom: 3rem; }
+        .article-date { color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 1rem; }
+        .article-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 2rem; letter-spacing: -0.02em; line-height: 1.2; }
+        .article-content { font-size: 1.1rem; line-height: 1.8; color: var(--text-primary); }
+        .article-content p { margin-bottom: 1.5rem; }
+        .article-content p:first-of-type { font-size: 1.2rem; color: var(--text-secondary); font-weight: 500; }
+        .back-link { display: inline-block; margin-top: 3rem; color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--text-primary); }
+        @media (max-width: 968px) {
+            .container { flex-direction: column; }
+            aside { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-color); }
+            main { margin-left: 0; padding: 3rem 2rem; }
+            nav { flex-direction: row; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="logo">James Kang</div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Writing</a>
+                <a href="../resume.html">Resume</a>
+            </nav>
+            <div class="social">
+                <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
+                <a href="https://github.com/JamesKang26" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </aside>
+        <main>
+            <div class="article-header">
+                <div class="article-date">January 6, 2026</div>
+                <h1 class="article-title">Vibe Coding: Building a Website When You're Bored (And What That Says About 2026)</h1>
+            </div>
+            <div class="article-content">
+                <p>Today I was bored and started working on my personal website again. After looking at what I cobbled together as a fresh grad, it's almost laughable how far AI has come. Back in 2020, I followed a YouTube tutorial where I loaded static HTML and images onto an S3 bucket configured as a static website endpoint, then pointed my domain through Route53 to host on thejameskang.com. It worked, but barely.</p>
+                
+                <p>I've been hearing a lot about vibe coding lately, so I decided to get a Cursor subscription and see what I could actually build now.</p>
+                
+                <h2>The Reality Check</h2>
+                <p>First, I wanted to set up proper CI/CD infrastructure connecting a Git repo to my S3 bucket for automatic deployments. Cursor also suggested integrating CloudFront as a CDN for better performance and security (which I did with claude to not use up cursors usage). This should be the kind of thing vibe coding makes trivial, right?</p>
+                
+                <p>It took about an hour. Mostly because Cursor couldn't do many of these things (they had to be done manually through the AWS console). I even created a new GitHub account because I couldn't find my secrets file. Then I discovered that back in 2020, I'd emailed myself the credentials. Not safe, I know 😂, but it's a perfect audit trail of my college years.</p>
+                
+                <p>The other bottleneck: I had to manually set up GitHub's access to AWS S3 because Cursor has no AWS integration. This should be Cursor's next step, right? Although maybe Amazon won't allow it since it would compete directly with Amazon Q.</p>
+                
+                <h2>Where It Actually Worked</h2>
+                <p>After wrestling with the infrastructure, I asked Cursor to create ten unique design patterns for a personal website based on research about what makes a great personal site. I reviewed all ten, picked six I liked, and told Cursor to choose one.</p>
+                
+                <p>It chose sidebar navigation. I liked it. Done.</p>
+                
+                <p>That's the part that felt like magic (going from "I want a website" to having one in minutes). The design will evolve over time as I add blog posts and projects. I'm planning to build a gaming thing, an automated job screening tool for job hunters, and about five other ideas I want to vibe code into existence.</p>
+                
+                <h2>What This Actually Means</h2>
+                <p>Vibe coding has made tech accessible to so many more people. The future potential is only limited by imagination (not by whether you can write a for-loop or remember CSS grid syntax).</p>
+                
+                <p>People keep saying AI will destroy jobs. That's partly true. But it'll also create new ones and force us to think about value differently. We don't need to sit here writing front-end code anymore. We can focus on direction, taste, and solving actual problems.</p>
+                
+                <p>I think front-end might be largely solved for now (research aside). What I really want to see is AI tackling harder problems (like AWS outages). If we're going to trust AI to drive cars and fly planes, we need to build systems reliable enough that people don't hesitate to put their lives on the line. And right now? We can't even keep cloud infrastructure from going down.</p>
+                
+                <p>That's the gap between vibe coding a website on a boring afternoon and actually trusting AI with things that matter. We're getting there, but we're not there yet.</p>
+            </div>
+            <a href="../articles.html" class="back-link">← Back to Writing</a>
+        </main>
+    </div>
+    <script>
+        function copyEmail(event) {
+            event.preventDefault();
+            const email = 'jameskang2357@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const link = document.getElementById('email-link');
+                const originalText = link.textContent;
+                link.textContent = 'Copied!';
+                setTimeout(() => {
+                    link.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy email:', err);
+                window.location.href = 'mailto:' + email;
+            });
+        }
+    </script>
+</body>
+</html>
+
