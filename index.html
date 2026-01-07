@@ -1,294 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>James Kang</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Kang - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation */
+        header {
+            padding: 2rem 2rem 1rem;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero {
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #888;
+            margin-bottom: 3rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .link-button {
+            padding: 0.75rem 2rem;
+            background: transparent;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .link-button:hover {
+            border-color: #666;
+            background: #111;
+            transform: translateY(-2px);
+        }
+
+        .link-button.primary {
+            background: #fff;
+            color: #0a0a0a;
+            border-color: #fff;
+        }
+
+        .link-button.primary:hover {
+            background: #e0e0e0;
+            border-color: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/projects.html">Projects</a>
+            <a href="/articles.html">Writing</a>
+            <a href="/img/resume.pdf">Resume</a>
+        </nav>
+    </header>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#"><img src="./img/5.png" alt="" width="100" height="100"></a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-  
-	<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-	  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-		<li class="nav-item active">
-		  <a class="nav-link" href="#Top">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="#PP">Portfolio</a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="./img/resume.pdf">Resume</a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" href="#contact">Contact</a>
-		</li>
-	  </ul>
-	</div>
-  </nav>
+    <main>
+        <div class="hero">
+            <h1>James Kang</h1>
+            <p class="subtitle">Software Engineer building things on the web</p>
+            
+            <div class="links">
+                <a href="/projects.html" class="link-button primary">View Projects</a>
+                <a href="/articles.html" class="link-button">Read Writing</a>
+                <a href="/img/resume.pdf" class="link-button">Resume</a>
+            </div>
+        </div>
+    </main>
 
-
-<!--- Image Slider -->
-<a NAME="Top"></a>
-<div id="slides" class="carousel slide" data-ride="carousel" data-interval="false">
-	<ul class="carousel-indicators">
-		<li data-target="#slides" data-slide-to="0" class="active"></li>
-		<li data-target="#slides" data-slide-to="1"></li>
-		<li data-target="#slides" data-slide-to="2"></li>
-	</ul>
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img src="./img/10.png" alt="" style="padding-bottom: 2.9rem;">
-			<div class="carousel-caption">
-				<h1 class="display-2">hello world</h1>
-				<h3>Welcome to my page!</h3>
-				<button type="button" class="btn btn-primary btn-lg"><a href="#contact" style="color: white;">Contact Me</a></button>
-				<button type="button" class="btn btn-primary btn-lg"><a href="#abot" style="color: white;">About me</a></button>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img src="./img/11.jpg" alt="">
-			<div class="carousel-caption">
-				<h1 class="display-2">projects</h1>
-				<h3>View my projects</h3>
-				<button type="button" class="btn btn-primary btn-lg"><a href="#PP" style="color: white;">First Project</a></button>
-				<button type="button" class="btn btn-primary btn-lg"><a href="#sproj" style="color: white;">Later Projects</a></button>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img src="./img/12.jpg" alt="">
-			<div class="carousel-caption">
-				<h1 class="display-2">web development</h1>
-				<h3>View the websites</h3>
-				<button type="button" class="btn btn-primary btn-lg"><a href="#" style="color: white;">Coming Soon</a></button>
-				<button type="button" class="btn btn-primary btn-lg"><a href="#" style="color: white;">Coming Soon</a></button>
-			</div>
-		</div>
-	</div>
-	<a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	  </a>
-	  <a class="carousel-control-next" href="#slides" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	  </a>
-</div>
-<!--- Jumbotron -->
-
-
-<!--- Welcome Section -->
-<div class="container-fluid padding">
-	<div class="row welcome text-center">
-		<div class="col-12">
-			<h1 class="display-4">My name is James Kang</h1>
-		</div>
-		<hr>
-		<div class="col-12">
-			<p class="lead">I am a recent University of Oregon graduate pursuing opportunities in Computer Science. 
-				During my time at the University of Oregon, I have worked on various projects such as 
-				designing software to coding software. I have also worked on group projects where I 
-				operated as the project manager, making sure deliverables were met and the project was 
-				running on time.</p>
-		</div>
-	</div>
-</div>
-
-<!--- Three Column Section -->
-<div class="container-fluid padding">
-	<div class="row text-center padding">
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<i class="fab fa-python"></i>
-			<h3>Python</h3>
-			<p>I have 4 years of experience with Python. Starting from Hello World all the way to advanced software projects.</p>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" width="95" height="95" padding="5">
-			<h3>C++</h3>
-			<p>C++ is one of my favorite languages due to it's compile time being one of
-				the fastest in modern languages. As such, half of my projects have utilized C++.
-			</p>
-		</div>
-		<div class="col-sm-12 col-md-4">
-			<i class="fas fa-code"></i>
-			<h3>HTML</h3>
-			<p>Over the last few years I had to make multiple webpages (this one as well) 
-				using HTML. I also use CSS, Java, and Bootstrap.</p>
-		</div>
-	</div>
-	<hr class="my-4">
-</div>
-
-<!--- Two Column Section -->
-<a NAME="PP"></a>
-<div class="container-fluid padding">
-	<div class="row padding">
-		<div class="col-lg-6">
-			<h2>Smart Keyboard</h2>
-			<p>One of my first big scale projects was called the Smart Keyboard. 
-				There were three main parts for this project. 
-				The UI, predicting the end of the word, and predicting the next word.</p>
-			<p>The idea was similar to the keyboards commonly found on phones.  
-				This project was entirely written in C for optimization purposes.</p>
-			<p>I worked on the predicting the end of the word.
-				 Whenever a user types any partial word (even a full word) it'll 
-				 look through our trie structure until it can give us the 3 words that was used
-				  the most by the user. The more you use a word the more likely it'll suggest 
-				  that word to you. Data for this was pulled from the dictionary and text messages.</p>
-			<p>Then my partner and I created the UI of functioning keyboard using C's Ncurses.</p>
-			<br>
-			<a href="https://bitbucket.org/mcampbe3/cis330_project_group_7/src/master/" class="btn btn-primary">Learn more</a>
-		</div>
-		<div class="col-lg-6">
-			<img src="./img/1.png" class="img-fluid" width="960" height="367.5">
-		</div>
-	</div>
-</div>
-
-<hr class="my-4">
-<!--- Fixed background -->
-<figure>
-	<div class="fixed-wrap">
-		<div id="fixed">
-		</div>
-	</div>
-</figure>
-
-
-<a NAME="sproj"></a>
-<!--- Other projects -->
-<div class="container-fluid padding">
-	<div class="row welcome text-center">
-		<div class="col-12">
-			<h1 class="display-4">My other projects</h1>
-		</div>
-		<hr>
-	</div>
-</div>
-
-<!--- Cards -->
-<div class="container-fluid padding">
-	<div class="row padding">
-		<div class="col-md-4">
-			<div class="card">
-				<img src="./img/3.png" alt="" class="card-img-top">
-				<div class="card-body">
-					<h4 class="card-title" style="padding-top: 1rem;"> AI Pacman</h4>
-					<p>The set of three projects were used in the class to teach the fundamentals of artificial intelligence</p>
-					<a href="https://github.com/JamesKang26/Pacman" class="btn btn-outline-secondary">Github</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img src="./img/4.jpg" alt="" class="card-img-top" style="padding-bottom: 22%;">
-				<div class="card-body">
-					<h4 class="card-title"> Covid-19 tracker</h4>
-					<p>I built a visualization of the initial spread of COVID-19 using skills I had learned in my scientific visualization class.</p>
-					<a href="https://github.com/JamesKang26/Covid19tracker" class="btn btn-outline-secondary">Github</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<img src="./img/6.png" alt="" class="card-img-top">
-				<div class="card-body">
-					<h4 class="card-title">Uber data base</h4>
-					<p>I created a fictional databse for uber and uber eats that let's drivers wait in one queue for both services</p>
-					<a href="https://github.com/JamesKang26/CIS451finalproj" class="btn btn-outline-secondary">Github</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<!--- Two Column Section -->
-<a NAME="abot"></a>
-<div class="container-fluid padding">
-	<div class="row padding">
-		<div class="col-lg-6">
-			<h2>About me</h2>
-			<p>My family came to the US when I was 10 and I have been here ever since. 
-				I am looking to gain more experience in computer science by staying in the United States.</p>
-			<p>I graduated from the University of Oregon on June 2020 (what a bad time to graduate) 
-				with a major in Computer science and a minor in business. I have a few small 
-				projects that I am working on for local restaurants but I am hoping to expand my skills.
-				I am eager to learn and open to relocation.</p>
-			<p>I have worked with many different platforms including but not limited to: Python, C++, 
-				HTML, Flask, PHP, SQL, GIT, AWS. I do have more things that I am familiar with however 
-				my biggest strength is my ability to learn things quickly, my communication skills
-				and my determination to meet deliverables.</p>
-			<p>Thank you for your consideration and your time!</p>
-			<br>
-		</div>
-		<div class="col-lg-6">
-			<img src="./img/0.JPG" class="img-fluid">
-		</div>
-	</div>
-	<hr class="my-4">
-</div>
-
-<!--- Connect -->
-<div class="container-fluid padding">
-	<div class="row text-center padding">
-		<div class="col-12">
-			<h2>Connect</h2>
-		</div>
-		<div class="col-12 social padding">
-			<a href="https://github.com/JamesKang26"><i class="fab fa-github"></i></a>
-			<a href="https://bitbucket.org/jkang2/"><i class="fab fa-bitbucket"></i></a>
-			<a href="https://twitter.com/Jameskang26"><i class="fab fa-twitter"></i></a>
-			<a href="https://www.linkedin.com/in/james~kang/"><i class="fab fa-linkedin"></i></a>
-		</div>
-	</div>
-</div>
-
-<!--- Footer -->
-<a NAME ="contact"></a>
-<footer class="contact">
-	<div class="container-fluid padding">
-		<div class="row text-center">
-			<div class="col-md-4">
-				<hr class="light">
-				<h5>Email</h5>
-				<hr class="light">
-				<p>jameskang2357@gmail.com</p>
-			</div>
-			<div class="col-md-4">
-				<hr class="light">
-				<h5>Phone Number</h5>
-				<hr class="light">
-				<p>541-221-6780</p>
-			</div>
-			<div class="col-md-4">
-				<hr class="light">
-				<h5>Address</h5>
-				<hr class="light">
-				<p>1992 brewer ave, 97401,Eugene Oregon</p>
-			</div>
-			<div class="col-12">
-				<hr class="light-100">
-				<h5>&copy; James Kang</h5>
-			</div>
-		</div>
-	</div>
-</footer>
-
-
-
+    <footer>
+        <p>
+            <a href="mailto:jameskang2357@gmail.com">Email</a> · 
+            <a href="https://github.com/JamesKang26" target="_blank">GitHub</a> · 
+            <a href="https://www.linkedin.com/in/james~kang/" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
 </body>
 </html>
-
-

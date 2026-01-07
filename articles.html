@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - James Kang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header Navigation */
+        header {
+            padding: 2rem 2rem 1rem;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 4rem;
+        }
+
+        /* Articles List */
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .article-item {
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .article-title a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-title a:hover {
+            color: #888;
+        }
+
+        .article-excerpt {
+            color: #999;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: #fff;
+        }
+
+        .read-more::after {
+            content: " →";
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .article-title {
+                font-size: 1.4rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/projects.html">Projects</a>
+            <a href="/articles.html" class="active">Writing</a>
+            <a href="/img/resume.pdf">Resume</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Writing</h1>
+        <p class="page-subtitle">Thoughts on tech, projects, and what I'm learning</p>
+
+        <div class="articles-list" id="articles-container">
+            <!-- Articles will be loaded here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 James Kang</p>
+    </footer>
+
+    <script>
+        // ARTICLES DATA - Edit this section to add/remove articles
+        const articles = [
+            {
+                title: "Setting Up CloudFront with S3",
+                date: "January 6, 2026",
+                slug: "cloudfront-setup",
+                excerpt: "A walkthrough of setting up AWS CloudFront with S3 for a fast, secure static website with HTTPS.",
+            },
+            // Add more articles here as you write them
+            // {
+            //     title: "Your Next Article Title",
+            //     date: "January 15, 2026",
+            //     slug: "article-slug",
+            //     excerpt: "Brief description of what the article is about...",
+            // }
+        ];
+
+        // Render articles
+        function renderArticles() {
+            const container = document.getElementById('articles-container');
+            
+            if (articles.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Coming Soon</h3>
+                        <p>Articles and tutorials will appear here. Stay tuned!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            articles.forEach(article => {
+                const item = document.createElement('article');
+                item.className = 'article-item';
+                
+                item.innerHTML = `
+                    <div class="article-date">${article.date}</div>
+                    <h2 class="article-title">
+                        <a href="/articles/${article.slug}.html">${article.title}</a>
+                    </h2>
+                    <p class="article-excerpt">${article.excerpt}</p>
+                    <a href="/articles/${article.slug}.html" class="read-more">Read more</a>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+
+        renderArticles();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - James Kang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header Navigation */
+        header {
+            padding: 2rem 2rem 1rem;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 4rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            border-color: #333;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .project-description {
+            color: #999;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #1a1a1a;
+            color: #888;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .project-link:hover {
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/projects.html" class="active">Projects</a>
+            <a href="/articles.html">Writing</a>
+            <a href="/img/resume.pdf">Resume</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-subtitle">Things I've built and shipped</p>
+
+        <div class="projects-grid" id="projects-container">
+            <!-- Projects will be loaded here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 James Kang</p>
+    </footer>
+
+    <script>
+        // PROJECTS DATA - Edit this section to add/remove projects
+        const projects = [
+            {
+                title: "Smart Keyboard",
+                description: "A predictive keyboard with word completion and next-word prediction. Built with C for optimal performance using trie data structures.",
+                tech: ["C", "Ncurses", "Data Structures"],
+                github: "https://bitbucket.org/mcampbe3/cis330_project_group_7/src/master/",
+                demo: null
+            },
+            {
+                title: "AI Pacman",
+                description: "Three projects teaching AI fundamentals including search algorithms, multi-agent systems, and reinforcement learning.",
+                tech: ["Python", "AI", "Machine Learning"],
+                github: "https://github.com/JamesKang26/Pacman",
+                demo: null
+            },
+            {
+                title: "COVID-19 Tracker",
+                description: "Interactive visualization of COVID-19 spread using scientific visualization techniques.",
+                tech: ["Python", "Data Visualization"],
+                github: "https://github.com/JamesKang26/Covid19tracker",
+                demo: null
+            },
+            {
+                title: "Uber Database System",
+                description: "Fictional database for Uber and Uber Eats with unified queue system for drivers across both services.",
+                tech: ["SQL", "Database Design"],
+                github: "https://github.com/JamesKang26/CIS451finalproj",
+                demo: null
+            }
+        ];
+
+        // Render projects
+        function renderProjects() {
+            const container = document.getElementById('projects-container');
+            
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                
+                const techTags = project.tech.map(tech => 
+                    `<span class="tech-tag">${tech}</span>`
+                ).join('');
+                
+                const links = [];
+                if (project.github) {
+                    links.push(`<a href="${project.github}" class="project-link" target="_blank">GitHub →</a>`);
+                }
+                if (project.demo) {
+                    links.push(`<a href="${project.demo}" class="project-link" target="_blank">Demo →</a>`);
+                }
+                
+                card.innerHTML = `
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-tech">${techTags}</div>
+                    <div class="project-links">${links.join('')}</div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        renderProjects();
+    </script>
+</body>
+</html>
+
