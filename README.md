@@ -25,3 +25,4 @@ Setup scripts and documentation are located in the `setup/` folder:
 ## Manual Sync
 
 You can also manually trigger the sync workflow from the GitHub Actions tab.
+
