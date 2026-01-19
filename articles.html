@@ -48,7 +48,7 @@
         <aside>
             <div class="logo">James Kang</div>
             <nav>
-                <a href="/">Home</a>
+                <a href="index.html">Home</a>
                 <a href="articles.html" class="active">Writing</a>
                 <a href="resume.html">Resume</a>
             </nav>
@@ -82,7 +82,7 @@
             articles.forEach(article => {
                 const item = document.createElement('article');
                 item.className = 'article-item';
-                item.innerHTML = `<div class="article-date">${article.date}</div><h2 class="article-title"><a href="/articles/${article.slug}.html">${article.title}</a></h2><p class="article-excerpt">${article.excerpt}</p><a href="/articles/${article.slug}.html" class="read-more">Read more →</a>`;
+                item.innerHTML = `<div class="article-date">${article.date}</div><h2 class="article-title"><a href="articles/${article.slug}.html">${article.title}</a></h2><p class="article-excerpt">${article.excerpt}</p><a href="articles/${article.slug}.html" class="read-more">Read more →</a>`;
                 container.appendChild(item);
             });
         }
