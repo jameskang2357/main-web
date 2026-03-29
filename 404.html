@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — James Kang</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/main.css">
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .error-code {
+            font-size: clamp(5rem, 15vw, 9rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            align-self: flex-start;
+        }
+
+        .back-link:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="nav-header">
+                <a href="/" class="logo">James Kang</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-body" id="nav-body">
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/projects.html">Projects</a>
+                    <a href="/articles.html">Writing</a>
+                    <a href="/now.html">Now</a>
+                    <a href="/resume.html">Resume</a>
+                </nav>
+                <div class="social">
+                    <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
+                    <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </aside>
+        <main>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page not found</h1>
+            <p class="error-message">This page doesn't exist or was moved.</p>
+            <a href="/" class="back-link">← Back home</a>
+        </main>
+    </div>
+    <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now — James Kang</title>
+    <meta name="description" content="What James Kang is focused on right now — work, side projects, and what's on his mind.">
+    <meta property="og:title" content="Now — James Kang">
+    <meta property="og:description" content="What I'm focused on right now.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .updated {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-bottom: 4rem;
+        }
+
+        .now-section {
+            margin-bottom: 3rem;
+        }
+
+        .now-section h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .now-section p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .now-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .now-section a {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+        }
+
+        .now-section a:hover {
+            opacity: 0.7;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 3rem 0;
+        }
+
+        .now-footer {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        .now-footer a {
+            color: var(--text-tertiary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .now-footer a:hover {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="nav-header">
+                <a href="/" class="logo">James Kang</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-body" id="nav-body">
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="articles.html">Writing</a>
+                    <a href="now.html" class="active">Now</a>
+                    <a href="resume.html">Resume</a>
+                </nav>
+                <div class="social">
+                    <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
+                    <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </aside>
+        <main>
+            <h1 class="page-title">Now</h1>
+            <p class="updated">Last updated March 2026 — San Jose, CA</p>
+
+            <div class="now-section">
+                <h2>Work</h2>
+                <p>Data Engineer at BILL. Most of my time goes into owning and scaling our streaming pipelines — Kinesis, Kafka, Flink — and making sure data gets where it needs to go reliably and fast. A lot of the work lately has been around cost optimization and modernizing legacy ETL jobs that have been running since before I joined.</p>
+                <p>It's unglamorous work a lot of the time, but it's the kind of thing that breaks everything else when it goes wrong, so it matters.</p>
+            </div>
+
+            <div class="now-section">
+                <h2>Building</h2>
+                <p>Rebuilt this site from scratch using AI tools — Cursor and Claude. Wrote about the experience <a href="/articles/vibe-coding-website-2026.html">here</a> if you're curious. The short version: vibe coding is real and it works, but infrastructure still requires humans.</p>
+                <p>Working on a couple of side project ideas I want to actually ship this year: an automated job screening tool for job hunters, and something in the gaming space. Both are still in the "thinking out loud" phase.</p>
+            </div>
+
+            <div class="now-section">
+                <h2>Learning</h2>
+                <p>Spending a lot of time thinking about where AI fits into data engineering — not just as a tool to write code faster, but what it means for how pipelines get built and maintained long-term.</p>
+                <p>Also slowly getting more comfortable with the frontend side of things, mostly by doing (this site being the primary lab).</p>
+            </div>
+
+            <div class="now-section">
+                <h2>Reading</h2>
+                <p>Mostly technical blogs and Hacker News. Nothing profound to report.</p>
+            </div>
+
+            <hr class="divider">
+
+            <p class="now-footer">
+                This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">/now page</a> — a snapshot of what I'm focused on at this point in time.
+            </p>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
