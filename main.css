@@ -1,0 +1,234 @@
+/* ===========================
+   SHARED STYLES — thejameskang.com
+   =========================== */
+
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Design tokens */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    --border-color: #e5e5e5;
+    --sidebar-width: 280px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #e2e8f0;
+        --text-secondary: #94a3b8;
+        --text-tertiary: #64748b;
+        --border-color: #334155;
+    }
+}
+
+/* Base */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+aside {
+    width: var(--sidebar-width);
+    border-right: 1px solid var(--border-color);
+    padding: 3rem 2rem;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--bg-primary);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.2s;
+}
+
+/* Nav body — holds nav links + social */
+.nav-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+nav a:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+/* Social links */
+.social {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.social a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.social a:hover {
+    color: var(--text-primary);
+}
+
+/* Main content */
+main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 5rem 4rem;
+    max-width: 900px;
+    min-width: 0;
+}
+
+/* Mobile: ≤ 768px */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.25rem 1.5rem;
+    }
+
+    .nav-header {
+        margin-bottom: 0;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-body {
+        display: none;
+        padding-top: 1.25rem;
+    }
+
+    .nav-body.open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    nav a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .social {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+        padding-top: 0.75rem;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 2.5rem 1.5rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 2rem 1rem;
+    }
+}
