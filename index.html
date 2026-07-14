@@ -8,11 +8,13 @@
     <meta property="og:title" content="James Kang | Data Infrastructure Engineer">
     <meta property="og:description" content="Data Infrastructure Engineer building reliable data platforms and cloud infrastructure.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://thejameskang.com/og.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
     <style>
         h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
@@ -49,8 +51,8 @@
 
         .link-button {
             padding: 0.875rem 2rem;
-            background: var(--text-primary);
-            color: var(--bg-primary);
+            background: var(--accent);
+            color: #ffffff;
             text-decoration: none;
             border-radius: 6px;
             font-size: 0.95rem;
@@ -59,7 +61,7 @@
         }
 
         .link-button:hover {
-            opacity: 0.85;
+            background: var(--accent-hover);
             transform: translateY(-1px);
         }
 
@@ -91,36 +93,83 @@
             margin-bottom: 1.5rem;
         }
 
-        .highlights {
+        .featured {
+            margin-bottom: 4rem;
+        }
+
+        .featured h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .featured-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 1.5rem;
-            margin-top: 3rem;
         }
 
-        .highlight-item {
-            padding: 1.5rem;
+        .featured-card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.75rem;
             background: var(--bg-secondary);
-            border-radius: 8px;
             border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: border-color 0.2s, transform 0.2s;
         }
 
-        .highlight-item h3 {
-            font-size: 1rem;
+        .featured-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .featured-card .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.75rem;
+        }
+
+        .featured-card h3 {
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
             color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
-        .highlight-item p {
-            font-size: 0.9rem;
+        .featured-card p {
+            font-size: 0.92rem;
             color: var(--text-secondary);
             line-height: 1.6;
-            margin: 0;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .featured-card .card-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .featured .view-all {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .featured .view-all:hover {
+            color: var(--accent);
         }
 
         @media (max-width: 768px) {
-            .highlights {
+            .featured-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
@@ -170,26 +219,33 @@
                     I'm a Data Infrastructure Engineer at Valon, where I build and run the infrastructure behind our data platform: multi-tenant data architecture, infrastructure as code with Terraform, and observability across roughly 100 Airflow DAGs.
                 </p>
                 <p>
-                    Before Valon, I spent four years at BILL as a Data Engineer owning batch and streaming pipelines built on AWS Kinesis, Kafka, and Flink. Before that I was a Software Developer at Avant, shipping full-stack features and putting machine learning models into production. I enjoy the intersection of infrastructure, data engineering, and solving real-world problems at scale.
+                    Before Valon, I spent four years at BILL as a Data Engineer owning batch and streaming pipelines built on AWS Kinesis, Kafka, and Flink, and before that I shipped full-stack features at Avant. Outside of work I design, build, and launch my own projects, a few of which are below.
                 </p>
-                <p>
-                    When I'm not building pipelines, I'm learning about new technologies, writing about my experiences, and contributing to open-source projects.
-                </p>
+            </div>
 
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <h3>Infrastructure as Code</h3>
-                        <p>Terraform (OpenTofu) across 8+ environments, standardizing deployments and provisioning</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h3>Data Platforms</h3>
-                        <p>Multi-tenant architecture supporting 25 to 50 TB across 300+ tables with strict data isolation</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h3>Observability</h3>
-                        <p>Datadog dashboards, log ingestion, and Slack alerting across ~100 Airflow DAGs</p>
-                    </div>
+            <div class="featured">
+                <h2>Featured Work</h2>
+                <div class="featured-grid">
+                    <a class="featured-card" href="https://eugenesushi.com" target="_blank" rel="noopener noreferrer">
+                        <span class="card-meta">Shipped 2026 · Live</span>
+                        <h3>Eugene Sushi</h3>
+                        <p>Website for Sushi Ya, a restaurant in Eugene, Oregon. Designed, built, and launched on AWS.</p>
+                        <span class="card-link">eugenesushi.com →</span>
+                    </a>
+                    <a class="featured-card" href="https://haechi.ai" target="_blank" rel="noopener noreferrer">
+                        <span class="card-meta">Shipped 2026 · Live</span>
+                        <h3>Haechi AI</h3>
+                        <p>Fraud protection for elderly users. Landing site plus a working prototype: mobile app, server, and family dashboard.</p>
+                        <span class="card-link">haechi.ai →</span>
+                    </a>
+                    <a class="featured-card" href="articles/vibe-coding-website-2026.html">
+                        <span class="card-meta">Writing · Jan 2026</span>
+                        <h3>Vibe Coding in 2026</h3>
+                        <p>What building a website out of boredom says about how far AI tooling has come, and where it still falls short.</p>
+                        <span class="card-link">Read the article →</span>
+                    </a>
                 </div>
+                <a class="view-all" href="projects.html">View all projects →</a>
             </div>
         </main>
     </div>

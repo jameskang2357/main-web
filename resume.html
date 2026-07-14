@@ -8,6 +8,8 @@
     <meta property="og:title" content="Resume | James Kang">
     <meta property="og:description" content="Data Infrastructure Engineer at Valon. Previously BILL and Avant. Terraform, Airflow, AWS, Kafka, Spark.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://thejameskang.com/og.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
     <style>
@@ -64,6 +66,7 @@
         }
 
         .resume-name {
+            font-family: var(--font-display);
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.4rem;
@@ -248,131 +251,110 @@
                     ↓ Download PDF
                 </a>
             </div>
-            <div class="resume-content" id="resume-content"></div>
+            <div class="resume-content">
+                <div class="resume-header-section">
+                    <div class="resume-name">James Kang</div>
+                    <div class="resume-title">Data Infrastructure Engineer</div>
+                    <div class="resume-contact">
+                        <span>(541) 221-6780</span>
+                        <a href="mailto:jameskang2357@gmail.com">jameskang2357@gmail.com</a>
+                        <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <div class="section-title">Employment</div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Data Infrastructure Engineer</div>
+                                <div class="item-company">Valon</div>
+                            </div>
+                            <div class="item-date">Feb 2026 - Present</div>
+                        </div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Led migration from GitLab to GitHub across 10+ repositories, including automated conversion of 10,000+ merge requests to pull requests using custom scripts, achieving zero downtime despite API rate limits</li>
+                                <li>Established observability for ~100 Airflow DAGs by implementing Datadog log ingestion, creating monitoring dashboards, and integrating Slack-based failure alerts</li>
+                                <li>Designed and implemented multi-tenant data architecture supporting 25 to 50 TB across 300+ tables, enabling secure onboarding of new tenants while maintaining strict data isolation</li>
+                                <li>Introduced infrastructure-as-code using Terraform (OpenTofu) across 8+ environments (prod, staging, tenant-specific), standardizing deployments and enabling scalable environment provisioning</li>
+                                <li>Developed infrastructure for an LLM-powered internal cloud agent (4,000+ daily Slack invocations), improving issue triage speed and enforcing data security via deterministic credential filtering and compliance-aligned SLAs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Data Engineer</div>
+                                <div class="item-company">BILL</div>
+                            </div>
+                            <div class="item-date">Feb 2022 - Dec 2025</div>
+                        </div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Owned and scaled batch and real-time data pipelines processing multiple terabytes of data daily and high-throughput event streams using AWS Kinesis, Kafka, Flink, Glue, and EMR</li>
+                                <li>Designed low-latency streaming architectures enabling near real-time data availability for AI, billing, risk, and compliance systems</li>
+                                <li>Reduced AWS costs by 20%+ through compute optimization, partitioning strategies, and storage tuning across large-scale data workloads</li>
+                                <li>Implemented data quality frameworks (e.g., Great Expectations) and monitoring systems, strengthening SLAs and improving data reliability across critical pipelines</li>
+                                <li>Built secure cross-account data access patterns using IAM roles, enabling compliant data sharing across internal teams and external partners</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Software Developer</div>
+                                <div class="item-company">Avant</div>
+                            </div>
+                            <div class="item-date">Nov 2020 - Feb 2022</div>
+                        </div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Built and deployed full-stack features using Kotlin, REST APIs, Kubernetes, and React, improving system performance and user experience</li>
+                                <li>Developed and productionized ML data pipelines, reducing hiring costs by 30%, improving model accuracy by 10%, and cutting training and data extraction time by 40%+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <div class="section-title">Education</div>
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">B.S. in Computer Science</div>
+                                <div class="item-school">University of Oregon · Eugene, OR</div>
+                            </div>
+                            <div class="item-date">2020</div>
+                        </div>
+                        <div class="item-description">Minor in Business Administration</div>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <div class="section-title">Skills</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">Apache Kafka</span>
+                        <span class="skill-tag">Kinesis</span>
+                        <span class="skill-tag">Firehose</span>
+                        <span class="skill-tag">Glue</span>
+                        <span class="skill-tag">EMR</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Datadog</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">Microsoft SQL Server</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">DynamoDB</span>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <script src="main.js"></script>
-    <script>
-        const resumeData = {
-            name: "James Kang",
-            title: "Data Infrastructure Engineer",
-            contact: {
-                email: "jameskang2357@gmail.com",
-                phone: "(541) 221-6780",
-                github: "https://github.com/jameskang2357",
-                linkedin: "https://www.linkedin.com/in/jameskang2357"
-            },
-            experience: [
-                {
-                    title: "Data Infrastructure Engineer",
-                    company: "Valon",
-                    location: "",
-                    startDate: "Feb 2026",
-                    endDate: "current",
-                    achievements: [
-                        "Led migration from GitLab to GitHub across 10+ repositories, including automated conversion of 10,000+ merge requests to pull requests using custom scripts, achieving zero downtime despite API rate limits",
-                        "Established observability for ~100 Airflow DAGs by implementing Datadog log ingestion, creating monitoring dashboards, and integrating Slack-based failure alerts",
-                        "Designed and implemented multi-tenant data architecture supporting 25 to 50 TB across 300+ tables, enabling secure onboarding of new tenants while maintaining strict data isolation",
-                        "Introduced infrastructure-as-code using Terraform (OpenTofu) across 8+ environments (prod, staging, tenant-specific), standardizing deployments and enabling scalable environment provisioning",
-                        "Developed infrastructure for an LLM-powered internal cloud agent (4,000+ daily Slack invocations), improving issue triage speed and enforcing data security via deterministic credential filtering and compliance-aligned SLAs"
-                    ]
-                },
-                {
-                    title: "Data Engineer",
-                    company: "BILL",
-                    location: "",
-                    startDate: "Feb 2022",
-                    endDate: "Dec 2025",
-                    achievements: [
-                        "Owned and scaled batch and real-time data pipelines processing multiple terabytes of data daily and high-throughput event streams using AWS Kinesis, Kafka, Flink, Glue, and EMR",
-                        "Designed low-latency streaming architectures enabling near real-time data availability for AI, billing, risk, and compliance systems",
-                        "Reduced AWS costs by 20%+ through compute optimization, partitioning strategies, and storage tuning across large-scale data workloads",
-                        "Implemented data quality frameworks (e.g., Great Expectations) and monitoring systems, strengthening SLAs and improving data reliability across critical pipelines",
-                        "Built secure cross-account data access patterns using IAM roles, enabling compliant data sharing across internal teams and external partners"
-                    ]
-                },
-                {
-                    title: "Software Developer",
-                    company: "Avant",
-                    location: "",
-                    startDate: "Nov 2020",
-                    endDate: "Feb 2022",
-                    achievements: [
-                        "Built and deployed full-stack features using Kotlin, REST APIs, Kubernetes, and React, improving system performance and user experience",
-                        "Developed and productionized ML data pipelines, reducing hiring costs by 30%, improving model accuracy by 10%, and cutting training and data extraction time by 40%+"
-                    ]
-                }
-            ],
-            education: [
-                {
-                    degree: "B.S. in Computer Science",
-                    school: "University of Oregon",
-                    location: "Eugene, OR",
-                    graduationDate: "2020",
-                    description: "Minor in Business Administration"
-                }
-            ],
-            skills: [
-                "Python", "SQL", "Apache Spark", "Terraform", "Docker", "Airflow",
-                "Apache Kafka", "Kinesis", "Firehose", "Glue", "EMR", "AWS", "GCP",
-                "Datadog", "Oracle", "Microsoft SQL Server", "PostgreSQL", "DynamoDB"
-            ]
-        };
-
-        function renderResume() {
-            const container = document.getElementById('resume-content');
-
-            let html = '<div class="resume-header-section">' +
-                '<div class="resume-name">' + resumeData.name + '</div>' +
-                '<div class="resume-title">' + resumeData.title + '</div>' +
-                '<div class="resume-contact">' +
-                (resumeData.contact.phone ? '<span>' + resumeData.contact.phone + '</span>' : '') +
-                '<a href="mailto:' + resumeData.contact.email + '">' + resumeData.contact.email + '</a>' +
-                '<a href="' + resumeData.contact.github + '" target="_blank" rel="noopener noreferrer">GitHub</a>' +
-                '<a href="' + resumeData.contact.linkedin + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
-                '</div></div>';
-
-            if (resumeData.experience && resumeData.experience.length > 0) {
-                html += '<div class="resume-section"><div class="section-title">Employment</div>';
-                resumeData.experience.forEach(function (exp) {
-                    html += '<div class="experience-item">' +
-                        '<div class="item-header"><div>' +
-                        '<div class="item-title">' + exp.title + '</div>' +
-                        '<div class="item-company">' + exp.company + (exp.location ? ' · ' + exp.location : '') + '</div>' +
-                        '</div><div class="item-date">' + exp.startDate + ' – ' + (exp.endDate === 'current' ? 'present' : exp.endDate) + '</div></div>' +
-                        (exp.achievements && exp.achievements.length > 0
-                            ? '<div class="item-description"><ul>' + exp.achievements.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul></div>'
-                            : '') +
-                        '</div>';
-                });
-                html += '</div>';
-            }
-
-            if (resumeData.education && resumeData.education.length > 0) {
-                html += '<div class="resume-section"><div class="section-title">Education</div>';
-                resumeData.education.forEach(function (edu) {
-                    html += '<div class="education-item">' +
-                        '<div class="item-header"><div>' +
-                        '<div class="item-title">' + edu.degree + '</div>' +
-                        '<div class="item-school">' + edu.school + (edu.location ? ' · ' + edu.location : '') + '</div>' +
-                        '</div><div class="item-date">' + edu.graduationDate + '</div></div>' +
-                        (edu.description ? '<div class="item-description">' + edu.description + '</div>' : '') +
-                        '</div>';
-                });
-                html += '</div>';
-            }
-
-            if (resumeData.skills && resumeData.skills.length > 0) {
-                html += '<div class="resume-section"><div class="section-title">Skills</div>' +
-                    '<div class="skills-list">' +
-                    resumeData.skills.map(function (s) { return '<span class="skill-tag">' + s + '</span>'; }).join('') +
-                    '</div></div>';
-            }
-
-            container.innerHTML = html;
-        }
-
-        renderResume();
-    </script>
 </body>
 </html>

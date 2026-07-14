@@ -8,6 +8,8 @@
     <meta property="og:title" content="Writing | James Kang">
     <meta property="og:description" content="Thoughts on data engineering, tech, and software development.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://thejameskang.com/og.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
     <style>
@@ -80,7 +82,7 @@
         }
 
         .read-more:hover {
-            color: var(--text-primary);
+            color: var(--accent);
         }
 
         .empty-state {
@@ -119,39 +121,16 @@
         <main>
             <h1 class="page-title">Writing</h1>
             <p class="page-subtitle">Thoughts on tech, projects, and what I'm learning</p>
-            <div class="articles-list" id="articles-container"></div>
+            <div class="articles-list">
+                <article class="article-item">
+                    <div class="article-date">January 6, 2026</div>
+                    <h2 class="article-title"><a href="/articles/vibe-coding-website-2026.html">Vibe Coding: Building a Website When You're Bored (And What That Says About 2026)</a></h2>
+                    <p class="article-excerpt">Today I was bored and started working on my personal website again. After looking at what I cobbled together as a fresh grad, it's almost laughable how far AI has come. Back in 2020, I followed a YouTube tutorial where I loaded static HTML and images onto an S3 bucket configured as a static website endpoint, then pointed my domain through Route53 to host on thejameskang.com. It worked, but barely.</p>
+                    <a href="/articles/vibe-coding-website-2026.html" class="read-more">Read more →</a>
+                </article>
+            </div>
         </main>
     </div>
     <script src="main.js"></script>
-    <script>
-        const articles = [
-            {
-                title: "Vibe Coding: Building a Website When You're Bored (And What That Says About 2026)",
-                date: "January 6, 2026",
-                slug: "vibe-coding-website-2026",
-                excerpt: "Today I was bored and started working on my personal website again. After looking at what I cobbled together as a fresh grad, it's almost laughable how far AI has come. Back in 2020, I followed a YouTube tutorial where I loaded static HTML and images onto an S3 bucket configured as a static website endpoint, then pointed my domain through Route53 to host on thejameskang.com. It worked, but barely."
-            }
-        ];
-
-        function renderArticles() {
-            const container = document.getElementById('articles-container');
-            if (articles.length === 0) {
-                container.innerHTML = '<div class="empty-state"><h3>Coming Soon</h3><p>Articles and tutorials will appear here. Stay tuned!</p></div>';
-                return;
-            }
-            articles.forEach(function (article) {
-                const item = document.createElement('article');
-                item.className = 'article-item';
-                item.innerHTML =
-                    '<div class="article-date">' + article.date + '</div>' +
-                    '<h2 class="article-title"><a href="/articles/' + article.slug + '.html">' + article.title + '</a></h2>' +
-                    '<p class="article-excerpt">' + article.excerpt + '</p>' +
-                    '<a href="/articles/' + article.slug + '.html" class="read-more">Read more →</a>';
-                container.appendChild(item);
-            });
-        }
-
-        renderArticles();
-    </script>
 </body>
 </html>
