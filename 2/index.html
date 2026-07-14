@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Style 2 | James Kang</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Style 2: Editorial — warm paper, serif headings, centered column */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --paper: #faf7f2;
+            --paper-raised: #f3eee6;
+            --ink: #221f1a;
+            --ink-soft: #5f5a51;
+            --ink-faint: #98917f;
+            --rule: #e2dccf;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --paper: #1c1a16;
+                --paper-raised: #26221c;
+                --ink: #ece7dd;
+                --ink-soft: #b3ab9c;
+                --ink-faint: #7d766a;
+                --rule: #3a362e;
+            }
+        }
+
+        body {
+            font-family: Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 6rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 4rem;
+        }
+
+        .wordmark {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            color: var(--ink-soft);
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: var(--ink-faint);
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 7vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+        }
+
+        .role {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--ink-soft);
+            margin-bottom: 2.5rem;
+        }
+
+        .lede {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lede:first-letter {
+            font-size: 1.4em;
+        }
+
+        p {
+            color: var(--ink-soft);
+            margin-bottom: 1.5rem;
+            font-size: 1.08rem;
+        }
+
+        p a,
+        .work-item a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--ink-faint);
+        }
+
+        p a:hover,
+        .work-item a:hover {
+            text-decoration-color: var(--ink);
+        }
+
+        .section-label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin: 4rem 0 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        .work-item {
+            padding: 1.6rem 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .work-item:first-of-type {
+            padding-top: 0;
+        }
+
+        .work-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .work-item h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .work-item .when {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.8rem;
+            color: var(--ink-faint);
+            margin-bottom: 0.6rem;
+        }
+
+        .work-item p {
+            margin-bottom: 0.6rem;
+            font-size: 1.02rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .actions a {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 2px;
+        }
+
+        .actions a:hover {
+            color: var(--ink-soft);
+            border-color: var(--ink-soft);
+        }
+
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            gap: 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--ink-soft);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--ink);
+        }
+
+        .style-switcher {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+            background: var(--paper-raised);
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            padding: 0.4rem 0.9rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.85rem;
+            color: var(--ink-faint);
+            z-index: 50;
+        }
+
+        .style-switcher a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            padding: 0.1rem 0.45rem;
+            border-radius: 999px;
+        }
+
+        .style-switcher a.current {
+            background: var(--ink);
+            color: var(--paper);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <a href="/" class="wordmark">James Kang</a>
+            <nav>
+                <a href="/" class="active">Home</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/articles.html">Writing</a>
+                <a href="/now.html">Now</a>
+                <a href="/resume.html">Resume</a>
+            </nav>
+        </header>
+
+        <h1>James Kang</h1>
+        <p class="role">Data Infrastructure Engineer</p>
+
+        <p class="lede">
+            I build the infrastructure behind data platforms: the pipelines, the provisioning, and the observability that keeps it all honest. Currently at Valon, working on multi-tenant data architecture, Terraform across every environment, and monitoring for around 100 Airflow DAGs.
+        </p>
+        <p>
+            Before Valon I spent four years at BILL owning batch and streaming pipelines on AWS Kinesis, Kafka, and Flink, and before that I shipped full-stack features at Avant. Outside of work I design, build, and launch my own projects.
+        </p>
+
+        <div class="section-label">Selected Work</div>
+
+        <div class="work-item">
+            <div class="when">Live · 2026</div>
+            <h3><a href="https://eugenesushi.com" target="_blank" rel="noopener noreferrer">Eugene Sushi</a></h3>
+            <p>Website for Sushi Ya, a restaurant in Eugene, Oregon. Designed, built, and launched on AWS.</p>
+        </div>
+        <div class="work-item">
+            <div class="when">Live · 2026</div>
+            <h3><a href="https://haechi.ai" target="_blank" rel="noopener noreferrer">Haechi AI</a></h3>
+            <p>Fraud protection for elderly users. Landing site plus a working prototype: mobile app, server, and family dashboard.</p>
+        </div>
+        <div class="work-item">
+            <div class="when">Writing · January 2026</div>
+            <h3><a href="/articles/vibe-coding-website-2026.html">Vibe Coding in 2026</a></h3>
+            <p>What building a website out of boredom says about how far AI tooling has come, and where it still falls short.</p>
+        </div>
+
+        <div class="actions">
+            <a href="/resume.html">View resume</a>
+            <a href="/projects.html">All projects</a>
+        </div>
+
+        <footer>
+            <a href="mailto:jameskang2357@gmail.com">Email</a>
+            <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </footer>
+    </div>
+    <div class="style-switcher">
+        <span>Style</span>
+        <a href="/1/">1</a>
+        <a href="/2/" class="current">2</a>
+        <a href="/3/">3</a>
+    </div>
+</body>
+</html>
