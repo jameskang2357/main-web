@@ -1,5 +1,5 @@
 /* ===========================
-   SHARED STYLES — thejameskang.com
+   SHARED STYLES, thejameskang.com
    Terminal theme: dark monospace, quiet green
    =========================== */
 
@@ -10,27 +10,15 @@
     box-sizing: border-box;
 }
 
-/* Design tokens — dark by default */
+/* Design tokens: always dark, near-black terminal */
 :root {
-    --bg: #101411;
-    --bg-raised: #171c18;
+    --bg: #0a0b0a;
+    --bg-raised: #131513;
     --fg: #d7e0d9;
     --fg-soft: #8fa094;
     --fg-faint: #5c6b60;
     --green: #7bc98a;
-    --line: #263029;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg: #f6f8f6;
-        --bg-raised: #edf1ed;
-        --fg: #1d241e;
-        --fg-soft: #4f5c52;
-        --fg-faint: #7d897f;
-        --green: #2c7c42;
-        --line: #d8e0d9;
-    }
+    --line: #222722;
 }
 
 /* Base */
