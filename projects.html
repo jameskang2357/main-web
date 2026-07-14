@@ -12,284 +12,129 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
-    <style>
-        main {
-            max-width: 1100px;
-        }
-
-        .page-title {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .page-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 4rem;
-        }
-
-        .section-heading {
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-tertiary);
-            margin: 3rem 0 1.5rem;
-        }
-
-        .section-heading:first-of-type {
-            margin-top: 0;
-        }
-
-        .status {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
-            margin-bottom: 0.9rem;
-            width: fit-content;
-        }
-
-        .status.live {
-            color: #16a34a;
-            background: rgba(22, 163, 74, 0.1);
-        }
-
-        .status.building {
-            color: var(--accent);
-            background: var(--accent-soft);
-        }
-
-        .status.archive {
-            color: var(--text-tertiary);
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .status.live {
-                color: #4ade80;
-                background: rgba(74, 222, 128, 0.12);
-            }
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: var(--text-secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .project-card:hover {
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            }
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            flex: 1;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .tech-tag {
-            background: var(--bg-primary);
-            color: var(--text-secondary);
-            padding: 0.3rem 0.65rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1.25rem;
-            margin-top: auto;
-        }
-
-        .project-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .project-link:hover {
-            color: var(--accent);
-        }
-
-        .project-link::after {
-            content: " →";
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <aside>
-            <div class="nav-header">
-                <a href="/" class="logo">James Kang</a>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            <div class="nav-body" id="nav-body">
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="projects.html" class="active">Projects</a>
-                    <a href="articles.html">Writing</a>
-                    <a href="now.html">Now</a>
-                    <a href="resume.html">Resume</a>
-                </nav>
-                <div class="social">
-                    <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
-                    <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
-            </div>
-        </aside>
-        <main>
-            <h1 class="page-title">Projects</h1>
-            <p class="page-subtitle">Things I've built and shipped</p>
+    <div class="page">
+        <header class="site-header">
+            <a href="/" class="wordmark">james-kang</a>
+            <nav>
+                <a href="/">home</a>
+                <a href="/projects.html" class="active">projects</a>
+                <a href="/articles.html">writing</a>
+                <a href="/now.html">now</a>
+                <a href="/resume.html">resume</a>
+            </nav>
+        </header>
 
-            <h2 class="section-heading">Recent Work</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <span class="status live">Live</span>
-                    <h3 class="project-title">Eugene Sushi</h3>
-                    <p class="project-description">Restaurant website for Sushi Ya in Eugene, Oregon: menu, gallery, and location. Designed, built, and launched on AWS in 2026.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">AWS S3</span>
-                        <span class="tech-tag">CloudFront</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://eugenesushi.com" class="project-link" target="_blank" rel="noopener noreferrer">eugenesushi.com</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <span class="status live">Live</span>
-                    <h3 class="project-title">Haechi AI</h3>
-                    <p class="project-description">Fraud protection for elderly users. Public landing site plus a working prototype: mobile app, API server, and a dashboard for family members.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">AWS</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://haechi.ai" class="project-link" target="_blank" rel="noopener noreferrer">haechi.ai</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <span class="status building">In development</span>
-                    <h3 class="project-title">Trading Bot Arena</h3>
-                    <p class="project-description">A multi-bot algorithmic trading arena where strategies compete against each other, from backtests and dry runs to paper trading.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Alpaca API</span>
-                        <span class="tech-tag">Backtesting</span>
-                    </div>
-                </div>
-            </div>
+        <div class="prompt"><span class="dollar">$</span> <span class="cmd">cd</span> projects/</div>
+        <h1>Projects</h1>
+        <p>Things I've built and shipped.</p>
 
-            <h2 class="section-heading">University Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <span class="status archive">2020</span>
-                    <h3 class="project-title">Smart Keyboard</h3>
-                    <p class="project-description">A predictive keyboard with word completion and next-word prediction. Built with C for optimal performance using trie data structures.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">C</span>
-                        <span class="tech-tag">Ncurses</span>
-                        <span class="tech-tag">Data Structures</span>
+        <section>
+            <div class="section-title"><span class="dollar">$</span> <span class="cmd">ls</span> recent/</div>
+            <div class="entries">
+                <a class="entry" href="https://eugenesushi.com" target="_blank" rel="noopener noreferrer">
+                    <div class="entry-head">
+                        <h3>eugene-sushi</h3>
+                        <span class="meta">live · 2026</span>
                     </div>
-                    <div class="project-links">
-                        <a href="https://bitbucket.org/mcampbe3/cis330_project_group_7/src/master/" class="project-link" target="_blank" rel="noopener noreferrer">Source</a>
+                    <p>Restaurant website for Sushi Ya in Eugene, Oregon: menu, gallery, and location. Designed, built, and launched on AWS.</p>
+                    <div class="tags">
+                        <span class="tag">html/css</span>
+                        <span class="tag">aws s3</span>
+                        <span class="tag">cloudfront</span>
                     </div>
-                </div>
-                <div class="project-card">
-                    <span class="status archive">2020</span>
-                    <h3 class="project-title">AI Pacman</h3>
-                    <p class="project-description">Three projects teaching AI fundamentals including search algorithms, multi-agent systems, and reinforcement learning.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">AI</span>
-                        <span class="tech-tag">Machine Learning</span>
+                    <span class="dest">eugenesushi.com →</span>
+                </a>
+                <a class="entry" href="https://haechi.ai" target="_blank" rel="noopener noreferrer">
+                    <div class="entry-head">
+                        <h3>haechi-ai</h3>
+                        <span class="meta">live · 2026</span>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/jameskang2357/Pacman" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <p>Fraud protection for elderly users. Public landing site plus a working prototype: mobile app, API server, and a dashboard for family members.</p>
+                    <div class="tags">
+                        <span class="tag">react native</span>
+                        <span class="tag">node.js</span>
+                        <span class="tag">aws</span>
                     </div>
-                </div>
-                <div class="project-card">
-                    <span class="status archive">2020</span>
-                    <h3 class="project-title">COVID-19 Tracker</h3>
-                    <p class="project-description">Interactive visualization of COVID-19 spread using scientific visualization techniques.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Data Visualization</span>
+                    <span class="dest">haechi.ai →</span>
+                </a>
+                <div class="entry">
+                    <div class="entry-head">
+                        <h3>trading-bot-arena</h3>
+                        <span class="meta">in development · 2026</span>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/jameskang2357/Covid19tracker" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <span class="status archive">2020</span>
-                    <h3 class="project-title">Uber Database System</h3>
-                    <p class="project-description">Fictional database for Uber and Uber Eats with unified queue system for drivers across both services.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">Database Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/jameskang2357/CIS451finalproj" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <p>A multi-bot algorithmic trading arena where strategies compete against each other, from backtests and dry runs to paper trading.</p>
+                    <div class="tags">
+                        <span class="tag">python</span>
+                        <span class="tag">alpaca api</span>
+                        <span class="tag">backtesting</span>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
+
+        <section>
+            <div class="section-title"><span class="dollar">$</span> <span class="cmd">ls</span> university/</div>
+            <div class="entries">
+                <a class="entry" href="https://bitbucket.org/mcampbe3/cis330_project_group_7/src/master/" target="_blank" rel="noopener noreferrer">
+                    <div class="entry-head">
+                        <h3>smart-keyboard</h3>
+                        <span class="meta">2020</span>
+                    </div>
+                    <p>A predictive keyboard with word completion and next-word prediction. Built with C for optimal performance using trie data structures.</p>
+                    <div class="tags">
+                        <span class="tag">c</span>
+                        <span class="tag">ncurses</span>
+                        <span class="tag">data structures</span>
+                    </div>
+                    <span class="dest">source →</span>
+                </a>
+                <a class="entry" href="https://github.com/jameskang2357/Pacman" target="_blank" rel="noopener noreferrer">
+                    <div class="entry-head">
+                        <h3>ai-pacman</h3>
+                        <span class="meta">2020</span>
+                    </div>
+                    <p>Three projects teaching AI fundamentals including search algorithms, multi-agent systems, and reinforcement learning.</p>
+                    <div class="tags">
+                        <span class="tag">python</span>
+                        <span class="tag">ai</span>
+                        <span class="tag">machine learning</span>
+                    </div>
+                    <span class="dest">github →</span>
+                </a>
+                <a class="entry" href="https://github.com/jameskang2357/Covid19tracker" target="_blank" rel="noopener noreferrer">
+                    <div class="entry-head">
+                        <h3>covid19-tracker</h3>
+                        <span class="meta">2020</span>
+                    </div>
+                    <p>Interactive visualization of COVID-19 spread using scientific visualization techniques.</p>
+                    <div class="tags">
+                        <span class="tag">python</span>
+                        <span class="tag">data visualization</span>
+                    </div>
+                    <span class="dest">github →</span>
+                </a>
+                <a class="entry" href="https://github.com/jameskang2357/CIS451finalproj" target="_blank" rel="noopener noreferrer">
+                    <div class="entry-head">
+                        <h3>uber-database</h3>
+                        <span class="meta">2020</span>
+                    </div>
+                    <p>Fictional database for Uber and Uber Eats with unified queue system for drivers across both services.</p>
+                    <div class="tags">
+                        <span class="tag">sql</span>
+                        <span class="tag">database design</span>
+                    </div>
+                    <span class="dest">github →</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <a href="#" id="email-link" onclick="copyEmail(event)">email</a>
+            <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>

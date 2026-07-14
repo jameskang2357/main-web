@@ -12,124 +12,43 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
-    <style>
-        .page-title {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .page-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 4rem;
-        }
-
-        .articles-list {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-item {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .article-item:first-child {
-            padding-top: 0;
-        }
-
-        .article-item:last-child {
-            border-bottom: none;
-        }
-
-        .article-date {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .article-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .article-title a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .article-title a:hover {
-            color: var(--text-secondary);
-        }
-
-        .article-excerpt {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .read-more {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .read-more:hover {
-            color: var(--accent);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 6rem 2rem;
-            color: var(--text-tertiary);
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <aside>
-            <div class="nav-header">
-                <a href="/" class="logo">James Kang</a>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <div class="page">
+        <header class="site-header">
+            <a href="/" class="wordmark">james-kang</a>
+            <nav>
+                <a href="/">home</a>
+                <a href="/projects.html">projects</a>
+                <a href="/articles.html" class="active">writing</a>
+                <a href="/now.html">now</a>
+                <a href="/resume.html">resume</a>
+            </nav>
+        </header>
+
+        <div class="prompt"><span class="dollar">$</span> <span class="cmd">cd</span> writing/</div>
+        <h1>Writing</h1>
+        <p>Thoughts on tech, projects, and what I'm learning.</p>
+
+        <section>
+            <div class="section-title"><span class="dollar">$</span> <span class="cmd">ls</span> posts/</div>
+            <div class="entries">
+                <a class="entry" href="/articles/vibe-coding-website-2026.html">
+                    <div class="entry-head">
+                        <h3>vibe-coding-2026</h3>
+                        <span class="meta">january 6, 2026</span>
+                    </div>
+                    <p>Vibe Coding: Building a Website When You're Bored (And What That Says About 2026). Back in 2020 I followed a YouTube tutorial to put static HTML on an S3 bucket. This time I asked an AI. A reflection on how far the tooling has come, and where it still falls short.</p>
+                    <span class="dest">read →</span>
+                </a>
             </div>
-            <div class="nav-body" id="nav-body">
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="articles.html" class="active">Writing</a>
-                    <a href="now.html">Now</a>
-                    <a href="resume.html">Resume</a>
-                </nav>
-                <div class="social">
-                    <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
-                    <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
-            </div>
-        </aside>
-        <main>
-            <h1 class="page-title">Writing</h1>
-            <p class="page-subtitle">Thoughts on tech, projects, and what I'm learning</p>
-            <div class="articles-list">
-                <article class="article-item">
-                    <div class="article-date">January 6, 2026</div>
-                    <h2 class="article-title"><a href="/articles/vibe-coding-website-2026.html">Vibe Coding: Building a Website When You're Bored (And What That Says About 2026)</a></h2>
-                    <p class="article-excerpt">Today I was bored and started working on my personal website again. After looking at what I cobbled together as a fresh grad, it's almost laughable how far AI has come. Back in 2020, I followed a YouTube tutorial where I loaded static HTML and images onto an S3 bucket configured as a static website endpoint, then pointed my domain through Route53 to host on thejameskang.com. It worked, but barely.</p>
-                    <a href="/articles/vibe-coding-website-2026.html" class="read-more">Read more →</a>
-                </article>
-            </div>
-        </main>
+        </section>
+
+        <footer class="site-footer">
+            <a href="#" id="email-link" onclick="copyEmail(event)">email</a>
+            <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>

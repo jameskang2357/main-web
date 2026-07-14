@@ -13,102 +13,63 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
     <style>
-        main {
-            padding: 3rem 4rem;
-            margin-right: auto;
-        }
-
-        .resume-header {
+        .resume-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+            align-items: baseline;
             gap: 1rem;
-        }
-
-        .page-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
         }
 
         .download-button {
-            padding: 0.75rem 1.5rem;
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            text-decoration: none;
+            color: var(--bg);
+            background: var(--green);
+            border: 1px solid var(--green);
             border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
         }
 
         .download-button:hover {
-            opacity: 0.85;
-            transform: translateY(-1px);
-        }
-
-        .resume-content {
-            max-width: 760px;
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .resume-header-section {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .resume-name {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            letter-spacing: -0.02em;
-        }
-
-        .resume-title {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+            opacity: 0.9;
         }
 
         .resume-contact {
             display: flex;
-            justify-content: center;
             gap: 1.5rem;
             flex-wrap: wrap;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+            font-size: 0.9rem;
+            color: var(--fg-soft);
+            margin-bottom: 3rem;
         }
 
         .resume-contact a {
-            color: var(--text-secondary);
+            color: var(--fg-soft);
             text-decoration: none;
-            transition: color 0.2s;
         }
 
         .resume-contact a:hover {
-            color: var(--text-primary);
+            color: var(--green);
         }
 
         .resume-section {
             margin-bottom: 2.5rem;
         }
 
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .resume-section > h2 {
+            color: var(--fg);
+            font-size: 1.05rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-primary);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .resume-section > h2::before {
+            content: '## ';
+            color: var(--green);
         }
 
         .experience-item,
@@ -119,96 +80,99 @@
         .item-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
+            align-items: baseline;
             flex-wrap: wrap;
-            gap: 0.25rem;
+            gap: 0.25rem 1rem;
+            margin-bottom: 0.25rem;
         }
 
         .item-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
+            color: var(--fg);
+            font-weight: 700;
+            font-size: 1rem;
         }
 
-        .item-company,
-        .item-school {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-style: italic;
+        .item-title::before {
+            content: '▸ ';
+            color: var(--green);
+        }
+
+        .item-company {
+            color: var(--fg-soft);
+            font-size: 0.9rem;
         }
 
         .item-date {
-            font-size: 0.9rem;
-            color: var(--text-tertiary);
+            color: var(--fg-faint);
+            font-size: 0.85rem;
             white-space: nowrap;
         }
 
         .item-description {
-            color: var(--text-secondary);
-            margin-top: 0.75rem;
-            font-size: 0.95rem;
-        }
-
-        .item-description ul {
-            margin-left: 1.5rem;
+            font-size: 0.92rem;
+            color: var(--fg-soft);
             margin-top: 0.5rem;
         }
 
+        .item-description ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
         .item-description li {
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .item-description li::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            color: var(--green);
         }
 
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
 
         .skill-tag {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            main {
-                padding: 2rem 1.5rem;
-            }
-
-            .resume-name {
-                font-size: 1.8rem;
-            }
-
-            .resume-contact {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
+            font-size: 0.82rem;
+            color: var(--fg-soft);
+            background: var(--bg-raised);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 0.3rem 0.7rem;
         }
 
         @media print {
-            aside,
+            .site-header,
+            .site-footer,
             .download-button,
-            .nav-toggle {
+            .prompt {
                 display: none !important;
-            }
-
-            main {
-                margin-left: 0 !important;
-                padding: 1rem !important;
-                max-width: 100% !important;
             }
 
             body {
                 background: white !important;
                 color: black !important;
+                font-size: 12px;
             }
 
-            .skill-tag {
-                border: 1px solid #ccc !important;
+            :root {
+                --fg: #000;
+                --fg-soft: #333;
+                --fg-faint: #666;
+                --green: #000;
+                --line: #ccc;
+                --bg-raised: #fff;
+            }
+
+            .page {
+                padding: 0;
+                max-width: 100%;
             }
 
             a {
@@ -219,141 +183,129 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <aside>
-            <div class="nav-header">
-                <a href="/" class="logo">James Kang</a>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            <div class="nav-body" id="nav-body">
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="articles.html">Writing</a>
-                    <a href="now.html">Now</a>
-                    <a href="resume.html" class="active">Resume</a>
-                </nav>
-                <div class="social">
-                    <a href="#" id="email-link" onclick="copyEmail(event)">Email</a>
-                    <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div class="page">
+        <header class="site-header">
+            <a href="/" class="wordmark">james-kang</a>
+            <nav>
+                <a href="/">home</a>
+                <a href="/projects.html">projects</a>
+                <a href="/articles.html">writing</a>
+                <a href="/now.html">now</a>
+                <a href="/resume.html" class="active">resume</a>
+            </nav>
+        </header>
+
+        <div class="prompt"><span class="dollar">$</span> <span class="cmd">cat</span> resume.md</div>
+        <div class="resume-top">
+            <h1>James Kang</h1>
+            <a href="img/resume.pdf" download="James_Kang_Resume.pdf" class="download-button">↓ download pdf</a>
+        </div>
+        <p style="color: var(--green); margin-bottom: 1.5rem;">Data Infrastructure Engineer</p>
+        <div class="resume-contact">
+            <span>(541) 221-6780</span>
+            <a href="mailto:jameskang2357@gmail.com">jameskang2357@gmail.com</a>
+            <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </div>
+
+        <div class="resume-section">
+            <h2>employment</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Data Infrastructure Engineer</div>
+                        <div class="item-company">Valon</div>
+                    </div>
+                    <div class="item-date">Feb 2026 - Present</div>
+                </div>
+                <div class="item-description">
+                    <ul>
+                        <li>Led migration from GitLab to GitHub across 10+ repositories, including automated conversion of 10,000+ merge requests to pull requests using custom scripts, achieving zero downtime despite API rate limits</li>
+                        <li>Established observability for ~100 Airflow DAGs by implementing Datadog log ingestion, creating monitoring dashboards, and integrating Slack-based failure alerts</li>
+                        <li>Designed and implemented multi-tenant data architecture supporting 25 to 50 TB across 300+ tables, enabling secure onboarding of new tenants while maintaining strict data isolation</li>
+                        <li>Introduced infrastructure-as-code using Terraform (OpenTofu) across 8+ environments (prod, staging, tenant-specific), standardizing deployments and enabling scalable environment provisioning</li>
+                        <li>Developed infrastructure for an LLM-powered internal cloud agent (4,000+ daily Slack invocations), improving issue triage speed and enforcing data security via deterministic credential filtering and compliance-aligned SLAs</li>
+                    </ul>
                 </div>
             </div>
-        </aside>
-        <main>
-            <div class="resume-header">
-                <h1 class="page-title">Resume</h1>
-                <a href="img/resume.pdf" download="James_Kang_Resume.pdf" class="download-button">
-                    ↓ Download PDF
-                </a>
-            </div>
-            <div class="resume-content">
-                <div class="resume-header-section">
-                    <div class="resume-name">James Kang</div>
-                    <div class="resume-title">Data Infrastructure Engineer</div>
-                    <div class="resume-contact">
-                        <span>(541) 221-6780</span>
-                        <a href="mailto:jameskang2357@gmail.com">jameskang2357@gmail.com</a>
-                        <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Data Engineer</div>
+                        <div class="item-company">BILL</div>
                     </div>
+                    <div class="item-date">Feb 2022 - Dec 2025</div>
                 </div>
-                <div class="resume-section">
-                    <div class="section-title">Employment</div>
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Data Infrastructure Engineer</div>
-                                <div class="item-company">Valon</div>
-                            </div>
-                            <div class="item-date">Feb 2026 - Present</div>
-                        </div>
-                        <div class="item-description">
-                            <ul>
-                                <li>Led migration from GitLab to GitHub across 10+ repositories, including automated conversion of 10,000+ merge requests to pull requests using custom scripts, achieving zero downtime despite API rate limits</li>
-                                <li>Established observability for ~100 Airflow DAGs by implementing Datadog log ingestion, creating monitoring dashboards, and integrating Slack-based failure alerts</li>
-                                <li>Designed and implemented multi-tenant data architecture supporting 25 to 50 TB across 300+ tables, enabling secure onboarding of new tenants while maintaining strict data isolation</li>
-                                <li>Introduced infrastructure-as-code using Terraform (OpenTofu) across 8+ environments (prod, staging, tenant-specific), standardizing deployments and enabling scalable environment provisioning</li>
-                                <li>Developed infrastructure for an LLM-powered internal cloud agent (4,000+ daily Slack invocations), improving issue triage speed and enforcing data security via deterministic credential filtering and compliance-aligned SLAs</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Data Engineer</div>
-                                <div class="item-company">BILL</div>
-                            </div>
-                            <div class="item-date">Feb 2022 - Dec 2025</div>
-                        </div>
-                        <div class="item-description">
-                            <ul>
-                                <li>Owned and scaled batch and real-time data pipelines processing multiple terabytes of data daily and high-throughput event streams using AWS Kinesis, Kafka, Flink, Glue, and EMR</li>
-                                <li>Designed low-latency streaming architectures enabling near real-time data availability for AI, billing, risk, and compliance systems</li>
-                                <li>Reduced AWS costs by 20%+ through compute optimization, partitioning strategies, and storage tuning across large-scale data workloads</li>
-                                <li>Implemented data quality frameworks (e.g., Great Expectations) and monitoring systems, strengthening SLAs and improving data reliability across critical pipelines</li>
-                                <li>Built secure cross-account data access patterns using IAM roles, enabling compliant data sharing across internal teams and external partners</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">Software Developer</div>
-                                <div class="item-company">Avant</div>
-                            </div>
-                            <div class="item-date">Nov 2020 - Feb 2022</div>
-                        </div>
-                        <div class="item-description">
-                            <ul>
-                                <li>Built and deployed full-stack features using Kotlin, REST APIs, Kubernetes, and React, improving system performance and user experience</li>
-                                <li>Developed and productionized ML data pipelines, reducing hiring costs by 30%, improving model accuracy by 10%, and cutting training and data extraction time by 40%+</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="resume-section">
-                    <div class="section-title">Education</div>
-                    <div class="education-item">
-                        <div class="item-header">
-                            <div>
-                                <div class="item-title">B.S. in Computer Science</div>
-                                <div class="item-school">University of Oregon · Eugene, OR</div>
-                            </div>
-                            <div class="item-date">2020</div>
-                        </div>
-                        <div class="item-description">Minor in Business Administration</div>
-                    </div>
-                </div>
-                <div class="resume-section">
-                    <div class="section-title">Skills</div>
-                    <div class="skills-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Apache Spark</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Airflow</span>
-                        <span class="skill-tag">Apache Kafka</span>
-                        <span class="skill-tag">Kinesis</span>
-                        <span class="skill-tag">Firehose</span>
-                        <span class="skill-tag">Glue</span>
-                        <span class="skill-tag">EMR</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Datadog</span>
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">Microsoft SQL Server</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">DynamoDB</span>
-                    </div>
+                <div class="item-description">
+                    <ul>
+                        <li>Owned and scaled batch and real-time data pipelines processing multiple terabytes of data daily and high-throughput event streams using AWS Kinesis, Kafka, Flink, Glue, and EMR</li>
+                        <li>Designed low-latency streaming architectures enabling near real-time data availability for AI, billing, risk, and compliance systems</li>
+                        <li>Reduced AWS costs by 20%+ through compute optimization, partitioning strategies, and storage tuning across large-scale data workloads</li>
+                        <li>Implemented data quality frameworks (e.g., Great Expectations) and monitoring systems, strengthening SLAs and improving data reliability across critical pipelines</li>
+                        <li>Built secure cross-account data access patterns using IAM roles, enabling compliant data sharing across internal teams and external partners</li>
+                    </ul>
                 </div>
             </div>
-        </main>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Software Developer</div>
+                        <div class="item-company">Avant</div>
+                    </div>
+                    <div class="item-date">Nov 2020 - Feb 2022</div>
+                </div>
+                <div class="item-description">
+                    <ul>
+                        <li>Built and deployed full-stack features using Kotlin, REST APIs, Kubernetes, and React, improving system performance and user experience</li>
+                        <li>Developed and productionized ML data pipelines, reducing hiring costs by 30%, improving model accuracy by 10%, and cutting training and data extraction time by 40%+</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>education</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">B.S. in Computer Science</div>
+                        <div class="item-company">University of Oregon · Eugene, OR</div>
+                    </div>
+                    <div class="item-date">2020</div>
+                </div>
+                <div class="item-description">Minor in Business Administration</div>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>skills</h2>
+            <div class="skills-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Apache Spark</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Airflow</span>
+                <span class="skill-tag">Apache Kafka</span>
+                <span class="skill-tag">Kinesis</span>
+                <span class="skill-tag">Firehose</span>
+                <span class="skill-tag">Glue</span>
+                <span class="skill-tag">EMR</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">GCP</span>
+                <span class="skill-tag">Datadog</span>
+                <span class="skill-tag">Oracle</span>
+                <span class="skill-tag">Microsoft SQL Server</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">DynamoDB</span>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <a href="#" id="email-link" onclick="copyEmail(event)">email</a>
+            <a href="https://github.com/jameskang2357" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://www.linkedin.com/in/jameskang2357" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>
