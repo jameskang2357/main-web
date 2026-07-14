@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume — James Kang</title>
-    <meta name="description" content="Resume of James Kang, Data Engineer with experience at BILL and Avant building scalable pipelines and full-stack systems.">
-    <meta property="og:title" content="Resume — James Kang">
-    <meta property="og:description" content="Data Engineer with experience at BILL and Avant. AWS, Kafka, Flink, Kotlin, React.">
+    <title>Resume | James Kang</title>
+    <meta name="description" content="Resume of James Kang, Infrastructure Engineer at Valon with prior experience at BILL and Avant building data platforms, pipelines, and cloud infrastructure.">
+    <meta property="og:title" content="Resume | James Kang">
+    <meta property="og:description" content="Infrastructure Engineer at Valon. Previously BILL and Avant. Terraform, Airflow, AWS, Kafka, Spark.">
     <meta property="og:type" content="website">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css">
@@ -255,7 +255,7 @@
     <script>
         const resumeData = {
             name: "James Kang",
-            title: "Data Engineer",
+            title: "Infrastructure Engineer",
             contact: {
                 email: "jameskang2357@gmail.com",
                 phone: "(541) 221-6780",
@@ -264,35 +264,42 @@
             },
             experience: [
                 {
+                    title: "Infrastructure Engineer",
+                    company: "Valon",
+                    location: "",
+                    startDate: "Feb 2026",
+                    endDate: "current",
+                    achievements: [
+                        "Led migration from GitLab to GitHub across 10+ repositories, including automated conversion of 10,000+ merge requests to pull requests using custom scripts, achieving zero downtime despite API rate limits",
+                        "Established observability for ~100 Airflow DAGs by implementing Datadog log ingestion, creating monitoring dashboards, and integrating Slack-based failure alerts",
+                        "Designed and implemented multi-tenant data architecture supporting 25 to 50 TB across 300+ tables, enabling secure onboarding of new tenants while maintaining strict data isolation",
+                        "Introduced infrastructure-as-code using Terraform (OpenTofu) across 8+ environments (prod, staging, tenant-specific), standardizing deployments and enabling scalable environment provisioning",
+                        "Developed infrastructure for an LLM-powered internal cloud agent (4,000+ daily Slack invocations), improving issue triage speed and enforcing data security via deterministic credential filtering and compliance-aligned SLAs"
+                    ]
+                },
+                {
                     title: "Data Engineer",
                     company: "BILL",
                     location: "",
                     startDate: "Feb 2022",
-                    endDate: "current",
+                    endDate: "Dec 2025",
                     achievements: [
-                        "Own and maintain batch and streaming pipelines ingesting from Oracle, MySQL, DynamoDB, and third-party sources into a centralised data platform",
-                        "Designed and scaled near real-time streaming pipelines using AWS Kinesis, Apache Kafka, Flink, Glue, Firehose, and EMR, enabling data freshness across AI, billing, risk, compliance, and finance teams",
-                        "Modernized legacy ETL workflows by upgrading AWS Glue, Airflow, and Spark, improving reliability, reducing job runtimes, and cutting operational overhead",
-                        "Drove AWS cost-optimization initiatives, achieving 20%+ quarterly savings through workload tuning, storage optimization, and scaling",
-                        "Developed monitoring, alerting, and automated quality checks for data pipelines, improving system reliability and ensuring high data accuracy",
-                        "Implemented secure cross-account IAM roles and data-sharing patterns, enabling safe and compliant access across internal teams and partner accounts",
-                        "Partnered with engineering, finance, risk, and compliance teams to deliver scalable data solutions that support analytics, reporting, and operational workflows"
+                        "Owned and scaled batch and real-time data pipelines processing multiple terabytes of data daily and high-throughput event streams using AWS Kinesis, Kafka, Flink, Glue, and EMR",
+                        "Designed low-latency streaming architectures enabling near real-time data availability for AI, billing, risk, and compliance systems",
+                        "Reduced AWS costs by 20%+ through compute optimization, partitioning strategies, and storage tuning across large-scale data workloads",
+                        "Implemented data quality frameworks (e.g., Great Expectations) and monitoring systems, strengthening SLAs and improving data reliability across critical pipelines",
+                        "Built secure cross-account data access patterns using IAM roles, enabling compliant data sharing across internal teams and external partners"
                     ]
                 },
                 {
                     title: "Software Developer",
                     company: "Avant",
                     location: "",
-                    startDate: "Oct 2020",
+                    startDate: "Nov 2020",
                     endDate: "Feb 2022",
                     achievements: [
-                        "Delivered end-to-end features as a full-stack developer using Kotlin, RESTful APIs, Kubernetes, and React, improving system reliability and user experience",
-                        "Contributed across the software development lifecycle, from defining requirements to deploying finished products",
-                        "Worked with QA and development teams to enhance and automate testing processes, increasing efficiency and documentation quality",
-                        "Integrated machine learning algorithms into applications, helping reduce hiring costs by 30%",
-                        "Built and managed pipelines to deploy and maintain models smoothly in production",
-                        "Found and applied improvements that cut training time by 20% and boosted overall model quality and data accuracy",
-                        "Analysed data features to identify patterns and improve data quality, resulting in a 10% increase in model accuracy"
+                        "Built and deployed full-stack features using Kotlin, REST APIs, Kubernetes, and React, improving system performance and user experience",
+                        "Developed and productionized ML data pipelines, reducing hiring costs by 30%, improving model accuracy by 10%, and cutting training and data extraction time by 40%+"
                     ]
                 }
             ],
@@ -306,9 +313,9 @@
                 }
             ],
             skills: [
-                "AWS", "Kinesis", "Apache Kafka", "Flink", "Glue", "Firehose", "EMR",
-                "Kotlin", "React", "Kubernetes", "RESTful APIs", "Airflow", "Spark",
-                "Oracle", "MySQL", "DynamoDB", "ETL", "Data Pipelines", "Machine Learning"
+                "Python", "SQL", "Apache Spark", "Terraform", "Docker", "Airflow",
+                "Apache Kafka", "Kinesis", "Firehose", "Glue", "EMR", "AWS", "GCP",
+                "Datadog", "Oracle", "Microsoft SQL Server", "PostgreSQL", "DynamoDB"
             ]
         };
 
