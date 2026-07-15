@@ -312,6 +312,40 @@ a.entry:hover {
     50% { opacity: 0; }
 }
 
+/* Hidden terminal easter egg */
+.term-session {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+.term-session .term-line {
+    color: var(--fg);
+    margin-top: 1rem;
+    word-break: break-all;
+}
+
+.term-session .term-line .dollar {
+    color: var(--green);
+}
+
+.term-session .caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: var(--green);
+    vertical-align: text-bottom;
+    margin-left: 1px;
+    animation: blink 1.1s steps(1) infinite;
+}
+
+.term-session .term-out {
+    font-family: inherit;
+    color: var(--fg-soft);
+    white-space: pre-wrap;
+    margin-top: 0.35rem;
+    line-height: 1.55;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
     .page {
