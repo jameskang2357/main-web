@@ -44,6 +44,6 @@ jobs:
       - name: Invalidate design route cache
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id E2JMF77ZRFYAO \
+            --distribution-id E2EJMF77ZRFYAO \
             --paths "/1" "/1/" "/2" "/2/" "/3" "/3/" "/4" "/4/" "/5" "/5/"
 
