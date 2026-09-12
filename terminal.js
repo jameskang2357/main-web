@@ -65,9 +65,9 @@
             case 'ls': {
                 const dir = (arg || '').replace(/\/$/, '');
                 if (!dir) return 'projects/   writing/   now.md   resume.md';
-                if (dir === 'projects') return 'eugene-sushi/   haechi-ai/   trading-bot-arena/   university/';
+                if (dir === 'projects') return 'eugene-sushi/   haechi-ai/   trading-bot-arena/';
                 if (dir === 'writing') return 'vibe-coding-2026.md';
-                if (dir === 'university') return 'smart-keyboard/   ai-pacman/   covid19-tracker/   uber-database/';
+
                 return 'ls: cannot access \'' + dir + '\': no such file or directory';
             }
 
