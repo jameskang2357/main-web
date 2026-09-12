@@ -145,6 +145,12 @@ p {
     max-width: 68ch;
 }
 
+.role {
+    color: var(--green);
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+}
+
 p a,
 li a {
     color: var(--fg);
@@ -168,24 +174,22 @@ li a:hover {
 
 .entry {
     display: block;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--bg-raised);
-    padding: 1.4rem 1.5rem;
+    border-top: 1px solid var(--line);
+    padding: 1.25rem 0;
     text-decoration: none;
-    transition: border-color 0.15s;
+    transition: color 0.15s;
 }
 
 a.entry:hover {
-    border-color: var(--green);
+    color: var(--green);
+}
+
+.entry:last-child {
+    border-bottom: 1px solid var(--line);
 }
 
 .entry .entry-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: block;
     margin-bottom: 0.4rem;
 }
 
@@ -201,8 +205,10 @@ a.entry:hover {
 }
 
 .entry .meta {
-    color: var(--fg-faint);
+    display: block;
+    color: var(--fg-soft);
     font-size: 0.8rem;
+    margin-top: 0.2rem;
 }
 
 .entry p {
@@ -223,20 +229,23 @@ a.entry:hover {
     text-underline-offset: 3px;
 }
 
-/* Tag chips */
+/* Project metadata */
 .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0 0.75rem;
     margin-top: 0.75rem;
+    color: var(--fg-faint);
+    font-size: 0.75rem;
 }
 
 .tag {
-    font-size: 0.75rem;
-    color: var(--fg-faint);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 0.15rem 0.5rem;
+    color: inherit;
+}
+
+.tag::before {
+    content: '#';
+    color: var(--green);
 }
 
 /* Buttons */
@@ -245,33 +254,23 @@ a.entry:hover {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
 }
 
 .actions a {
-    color: var(--fg);
+    color: var(--fg-soft);
     text-decoration: none;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 0.7rem 1.4rem;
     font-size: 0.9rem;
-    transition: border-color 0.15s, color 0.15s;
+    transition: color 0.15s;
 }
 
 .actions a:hover {
-    border-color: var(--green);
     color: var(--green);
 }
 
-.actions a.primary {
-    background: var(--green);
-    border-color: var(--green);
-    color: var(--bg);
-    font-weight: 700;
-}
-
-.actions a.primary:hover {
-    opacity: 0.9;
-    color: var(--bg);
+.actions .dollar {
+    color: var(--green);
 }
 
 /* Footer */
@@ -356,7 +355,5 @@ a.entry:hover {
         margin-bottom: 2.5rem;
     }
 
-    .entry {
-        padding: 1.2rem 1.25rem;
-    }
+    .entry { padding: 1.2rem 0; }
 }

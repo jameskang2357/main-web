@@ -1,15 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Kang — 05 Terminal</title>
-    <meta name="description" content="James Kang is a Data Infrastructure Engineer at Valon. Agent driven development since early 2026.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>James Kang | Data Infrastructure Engineer</title>
+    <meta name="description" content="James Kang builds data infrastructure at Valon and independent projects outside of work.">
     <meta property="og:title" content="James Kang | Data Infrastructure Engineer">
-    <meta property="og:description" content="Data Infrastructure Engineer at Valon. Agent driven development since early 2026.">
+    <meta property="og:description" content="James Kang builds data infrastructure at Valon and independent projects outside of work.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://thejameskang.com/og.png">
+    <meta property="og:url" content="https://thejameskang.com/">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://thejameskang.com/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/main.css">
 </head>
@@ -17,8 +19,8 @@
     <div class="page">
         <header class="site-header">
             <a href="/" class="wordmark">james-kang</a>
-            <nav>
-                <a href="/" class="active">home</a>
+            <nav aria-label="Main navigation">
+                <a href="/" class="active" aria-current="page">home</a>
                 <a href="/projects.html">projects</a>
                 <a href="/articles.html">writing</a>
                 <a href="/now.html">now</a>
@@ -26,53 +28,50 @@
             </nav>
         </header>
 
-        <div class="prompt"><span class="dollar">$</span> whoami</div>
-        <h1>James Kang<span class="cursor"></span></h1>
-        <p style="color: var(--green); margin-bottom: 2.5rem; font-size: 1.05rem;">Data Infrastructure Engineer @ Valon</p>
+        <main id="main">
+            <div class="prompt"><span class="dollar">$</span> whoami</div>
+            <h1>James Kang<span class="cursor"></span></h1>
+            <p class="role">Data Infrastructure Engineer @ Valon</p>
 
-        <p>
-            I build and run the infrastructure behind data platforms. Since early 2026 my work has been agent driven: AI agents write, test, and ship most of the code, while I set direction, review the output, and own the architecture.
-        </p>
-        <p>
-            Before Valon I spent four years at BILL owning batch and streaming pipelines on AWS, and shipped full-stack features at Avant before that. Outside of work I design, build, and ship my own projects.
-        </p>
+            <p>
+                I build data infrastructure at Valon. Previously BILL and Avant. Outside of work, I build independent projects.
+            </p>
 
-        <section>
-            <div class="section-title"><span class="dollar">$</span> <span class="cmd">ls</span> featured/</div>
-            <div class="entries">
-                <a class="entry" href="https://eugenesushi.com" target="_blank" rel="noopener noreferrer">
-                    <div class="entry-head">
-                        <h3>eugene-sushi</h3>
-                        <span class="meta">live · 2026</span>
-                    </div>
-                    <p>Website for Sushi Ya, a restaurant in Eugene, Oregon. Designed, built, and launched on AWS.</p>
-                    <span class="dest">eugenesushi.com →</span>
-                </a>
-                <a class="entry" href="https://haechi.ai" target="_blank" rel="noopener noreferrer">
-                    <div class="entry-head">
-                        <h3>haechi-ai</h3>
-                        <span class="meta">live · 2026</span>
-                    </div>
-                    <p>Fraud protection for elderly users. Landing site plus a working prototype: mobile app, server, and family dashboard.</p>
-                    <span class="dest">haechi.ai →</span>
-                </a>
-                <a class="entry" href="/articles/vibe-coding-website-2026.html">
-                    <div class="entry-head">
-                        <h3>vibe-coding-2026</h3>
-                        <span class="meta">writing · jan 2026</span>
-                    </div>
-                    <p>What building a website out of boredom says about how far AI tooling has come, and where it still falls short.</p>
-                    <span class="dest">read →</span>
-                </a>
+            <section>
+                <h2 class="section-title"><span class="dollar">$</span> <span class="cmd">ls</span> featured/</h2>
+                <div class="entries">
+                    <a class="entry" href="https://eugenesushi.com" target="_blank" rel="noopener noreferrer">
+                        <div class="entry-head">
+                            <h3>eugene-sushi</h3>
+                            <span class="meta">website · 2026</span>
+                        </div>
+                        <p>Website for Sushi Ya, a restaurant in Eugene, Oregon. Designed, built, and launched on AWS.</p>
+                        <span class="dest">eugenesushi.com →</span>
+                    </a>
+                    <a class="entry" href="https://haechi.ai" target="_blank" rel="noopener noreferrer">
+                        <div class="entry-head">
+                            <h3>haechi-ai</h3>
+                            <span class="meta">prototype · 2026</span>
+                        </div>
+                        <p>Fraud protection for older adults. Landing site plus a working prototype: mobile app, server, and family dashboard.</p>
+                        <span class="dest">haechi.ai →</span>
+                    </a>
+                    <a class="entry" href="/articles/vibe-coding-website-2026.html">
+                        <div class="entry-head">
+                            <h3>vibe-coding-2026</h3>
+                            <span class="meta">article · 2026</span>
+                        </div>
+                        <p>What building a website out of boredom says about how far AI tooling has come, and where it still falls short.</p>
+                        <span class="dest">read →</span>
+                    </a>
+                </div>
+            </section>
+
+            <div class="actions" aria-label="More links">
+                <a href="/resume.html"><span class="dollar">$</span> view resume</a>
+                <a href="/projects.html"><span class="dollar">$</span> ls projects/</a>
             </div>
-        </section>
-
-        <div class="actions">
-            <a href="/resume.html" class="primary">view resume</a>
-            <a href="/projects.html">all projects</a>
-        </div>
-
-        <div id="terminal-session" class="term-session" hidden></div>
+        </main>
 
         <footer class="site-footer">
             <a href="#" id="email-link" onclick="copyEmail(event)">email</a>
@@ -81,6 +80,5 @@
         </footer>
     </div>
     <script src="/main.js"></script>
-    <script src="/terminal.js"></script>
 </body>
 </html>

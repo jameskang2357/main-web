@@ -34,7 +34,7 @@ jobs:
 
       - name: Publish slashless design routes
         run: |
-          for route in 1 2 3 4 5; do
+          for route in 5; do
             aws s3 cp "$route/index.html" "s3://${{ secrets.S3_BUCKET_NAME }}/$route" \
               --content-type "text/html; charset=utf-8"
             aws s3 cp "$route/index.html" "s3://${{ secrets.S3_BUCKET_NAME }}/$route/" \
@@ -45,5 +45,5 @@ jobs:
         run: |
           aws cloudfront create-invalidation \
             --distribution-id E2EJMF77ZRFYAO \
-            --paths "/1" "/1/" "/2" "/2/" "/3" "/3/" "/4" "/4/" "/5" "/5/"
+            --paths "/5" "/5/"
 

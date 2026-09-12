@@ -5,7 +5,7 @@ function setActiveNav() {
         link.classList.remove('active');
         const href = link.getAttribute('href');
         if (href === '/' || href === '/index.html') {
-            if (path === '/' || path === '/index.html') {
+            if (path === '/' || path === '/index.html' || path === '/5' || path === '/5/') {
                 link.classList.add('active');
             }
         } else {
