@@ -45,5 +45,5 @@ jobs:
         run: |
           aws cloudfront create-invalidation \
             --distribution-id E2EJMF77ZRFYAO \
-            --paths "/5" "/5/"
+            --paths "/*"
 
