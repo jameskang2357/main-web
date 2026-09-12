@@ -273,6 +273,27 @@ a.entry:hover {
     color: var(--green);
 }
 
+/* Writing note */
+.writing-note {
+    margin-top: 4rem;
+}
+
+.writing-link {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--line);
+    padding: 1.25rem 0;
+    text-decoration: none;
+}
+
+.writing-link:hover .writing-title {
+    color: var(--green);
+}
+
+.writing-title {
+    color: var(--fg);
+}
 /* Footer */
 .site-footer {
     margin-top: 4.5rem;
@@ -356,4 +377,7 @@ a.entry:hover {
     }
 
     .entry { padding: 1.2rem 0; }
+
+    .writing-link { display: block; }
+    .writing-link .dest { margin-top: 0.45rem; }
 }
